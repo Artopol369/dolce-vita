@@ -1,0 +1,51 @@
+---
+import "@fontsource/cormorant-garamond/400.css";
+import "@fontsource/cormorant-garamond/400-italic.css";
+import "@fontsource/cormorant-garamond/600.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import PlaceholderBanner from "../components/PlaceholderBanner.astro";
+import { getLocaleFromUrl, t, alternateHref } from "../i18n/ui";
+
+interface Props {
+  title?: string;
+  description?: string;
+  pathname?: string;
+}
+
+const locale = getLocaleFromUrl(Astro.url);
+const dict = t(locale);
+const { title, description, pathname = Astro.url.pathname } = Astro.props;
+const fullTitle = title ? `${title} — La Dolce Gera` : dict.site_title;
+const desc = description ?? dict.site_tagline;
+const altHref = alternateHref(locale, pathname);
+const altLocale = locale === "de" ? "uk" : "de";
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <meta name="theme-color" content="#8B2635" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={`https://ladolcegera.de${pathname}`} />
+    <link rel="alternate" hreflang={altLocale} href={`https://ladolcegera.de${altHref}`} />
+    <link rel="alternate" hreflang={locale} href={`https://ladolcegera.de${pathname}`} />
+    <link rel="alternate" hreflang="x-default" href={`https://ladolcegera.de${locale === "de" ? pathname : altHref}`} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={locale === "de" ? "de_DE" : "uk_UA"} />
+  </head>
+  <body>
+    <PlaceholderBanner text={dict.placeholder_notice} />
+    <Nav locale={locale} pathname={pathname} />
+    <main><slot /></main>
+    <Footer locale={locale} />
+  </body>
+</html>

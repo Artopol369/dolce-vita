@@ -1,0 +1,40 @@
+---
+interface Props { text: string }
+const { text } = Astro.props;
+---
+<div class="demo-pill" role="note" aria-label="Preview" title={text}>
+  <span class="dot"></span>
+  Vorschau
+</div>
+<style>
+  .demo-pill {
+    position: fixed;
+    bottom: 18px;
+    right: 18px;
+    z-index: 50;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px 6px 10px;
+    border-radius: 9999px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(58, 36, 25, 0.85);
+    color: #FFFBF5;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    pointer-events: none;
+  }
+  .dot {
+    width: 6px; height: 6px; border-radius: 9999px;
+    background: #C9A565;
+    box-shadow: 0 0 0 4px rgba(201, 165, 101, 0.22);
+    animation: dot-pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.15); }
+  }
+</style>

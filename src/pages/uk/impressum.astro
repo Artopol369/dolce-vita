@@ -1,0 +1,70 @@
+---
+import Base from "../../layouts/Base.astro";
+import LegalPage from "../../components/LegalPage.astro";
+const lastUpdated = "21 травня 2026 р.";
+---
+<Base title="Impressum">
+  <LegalPage title="Impressum" kicker="Юридична інформація · § 5 TMG">
+    <p class="text-sm text-[color:var(--color-espresso)]/65"><em>Стан на {lastUpdated}</em></p>
+
+    <p class="text-sm text-[color:var(--color-espresso)]/70 italic">
+      Юридично обовʼязкова версія Impressum — німецькомовна (див. <a href="/impressum">/impressum</a>).
+      Цей текст — переклад для зручності україномовних відвідувачів.
+    </p>
+
+    <h2>Відомості про підприємство</h2>
+    <p>
+      <strong>La Dolce Gera</strong> — кондитерська в ресторані 1880 ABACO<br />
+      <span class="placeholder-tag">Правова форма буде доповнена</span><br />
+      Stadtgraben 14<br />
+      07545 Gera<br />
+      Німеччина
+    </p>
+
+    <h2>Відповідальна особа</h2>
+    <p>
+      Дарʼя Громова<br />
+      Власниця / директорка
+    </p>
+
+    <h2>Контакти</h2>
+    <ul>
+      <li>Телефон: <span class="placeholder-tag">буде доповнено перед публікацією</span></li>
+      <li>Email: <span class="placeholder-tag">буде доповнено перед публікацією</span></li>
+      <li>Telegram: <a href="https://t.me/la_dolce_gera" target="_blank" rel="noopener">@la_dolce_gera</a></li>
+    </ul>
+
+    <h2>Податковий номер</h2>
+    <p>
+      <span class="placeholder-tag">Номер УСт-ID згідно §27 а UStG буде вказано перед публікацією. Якщо кондитерська матиме статус Kleinunternehmerin згідно §19 UStG, буде відповідне посилання.</span>
+    </p>
+
+    <h2>Контрольний орган</h2>
+    <p>
+      Lebensmittelüberwachungs- und Veterinäramt der Stadt Gera<br />
+      Stadthaus, Kornmarkt 12, 07545 Gera
+    </p>
+
+    <h2>Відповідальний за контент (§ 18 п. 2 MStV)</h2>
+    <p>
+      Дарʼя Громова, адреса як вище.
+    </p>
+
+    <h2>Вирішення спорів</h2>
+    <p>
+      Європейська Комісія надає платформу для онлайн-вирішення спорів (OS):
+      <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>.
+      Ми не зобовʼязані та не готові брати участь у процедурах вирішення спорів через споживчі арбітражні органи.
+    </p>
+
+    <h2>Авторські права</h2>
+    <p>
+      Контент і фото на цій сторінці підпадають під німецьке авторське право. Використання наших матеріалів без письмового дозволу заборонено.
+    </p>
+
+    <hr class="border-[color:var(--color-mist)] mt-10" />
+    <p class="text-xs text-[color:var(--color-espresso)]/55 mt-4">
+      <strong>Демоверсія:</strong> Поля з <span class="placeholder-tag">плейсхолдером</span> буде заповнено перед публікацією.
+    </p>
+  </LegalPage>
+</Base>

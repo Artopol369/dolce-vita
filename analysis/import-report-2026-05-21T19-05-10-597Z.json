@@ -1,0 +1,28 @@
+{
+  "total": 2260,
+  "classified": {
+    "catalog": 198,
+    "in_stock": 7,
+    "showcase": 111,
+    "delivered": 21,
+    "event_teaser": 6,
+    "testimonial": 114,
+    "seasonal": 2
+  },
+  "dropped": {
+    "greeting": 405,
+    "conflict": 5,
+    "local_rec": 5,
+    "short": 30,
+    "no_text_no_photo": 41,
+    "not_owner_no_review": 139,
+    "since": 0
+  },
+  "files_written": {
+    "tortes": 13,
+    "sweets": 3,
+    "journal": 60
+  },
+  "photos_written": 126,
+  "photos_skipped_existing": 0
+}

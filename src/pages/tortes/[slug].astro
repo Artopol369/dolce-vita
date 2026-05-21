@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import CatalogDetail from "../../components/CatalogDetail.astro";
+import { t, pickBilingual } from "../../i18n/ui";
+
+export async function getStaticPaths() {
+  const items = await getCollection("tortes");
+  return items.map(item => ({ params: { slug: item.id }, props: { item } }));
+}
+const { item } = Astro.props;
+const { Content } = await render(item);
+const title = pickBilingual(item.data, "de", "title");
+const dict = t("de");
+---
+<Base title={title} description={item.data.summary_de}>
+  <CatalogDetail item={item} locale="de" collection="tortes" Content={Content} />
+</Base>

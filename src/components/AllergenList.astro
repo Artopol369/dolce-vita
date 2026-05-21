@@ -1,0 +1,17 @@
+---
+import { t, type Locale } from "../i18n/ui";
+interface Props { allergens: string[]; locale: Locale }
+const { allergens, locale } = Astro.props;
+const dict = t(locale);
+const labels: Record<string, string> = (dict.allergens ?? {}) as any;
+---
+<div class="text-xs text-[color:var(--color-espresso)]/70">
+  <span class="kicker text-[0.65rem]">{dict.tortes.allergens_label}</span>
+  <ul class="mt-2 flex flex-wrap gap-1.5">
+    {allergens.map(a => (
+      <li class="px-2 py-0.5 rounded-full bg-[color:var(--color-mist)]/60 text-[color:var(--color-espresso)]/80">
+        {labels[a] ?? a}
+      </li>
+    ))}
+  </ul>
+</div>

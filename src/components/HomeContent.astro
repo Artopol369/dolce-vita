@@ -1,0 +1,180 @@
+---
+import { getCollection } from "astro:content";
+import { t, type Locale, pickBilingual, localizePath } from "../i18n/ui";
+import HeroLogo from "./HeroLogo.astro";
+import TelegramCta from "./TelegramCta.astro";
+import CardTorte from "./CardTorte.astro";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const dict = t(locale);
+
+const tortes = (await getCollection("tortes")).sort((a, b) => (a.data.order ?? 100) - (b.data.order ?? 100));
+const sweets = (await getCollection("sweets")).sort((a, b) => (a.data.order ?? 100) - (b.data.order ?? 100));
+const journal = (await getCollection("journal")).sort((a, b) => b.data.date.localeCompare(a.data.date));
+
+const featuredTortes = tortes.filter(t => t.data.featured).slice(0, 3);
+const recentJournal = journal.slice(0, 6);
+const categories = dict.journal.categories as Record<string, string>;
+
+const voices = [
+  { initial: "S", text_uk: "Це самі смачні тортики, які я пробувала будь-де! Шикарний смак, дизайн на будь-який смак, індивідуальний підхід.", text_de: "Das sind die leckersten Torten, die ich je probiert habe! Wundervoller Geschmack, Design nach Wunsch, individuelle Betreuung." },
+  { initial: "A", text_uk: "Дякую за дуже смачний Наполеон, неймовірний на смак. Тепер я ваш постійний клієнт.", text_de: "Vielen Dank für den unglaublich leckeren Napoleon. Jetzt bin ich Stammgast." },
+  { initial: "N", text_uk: "Найсмачніші торти, які я коштувала! Ідеальне поєднання смаків і декору. Всім щиро рекомендую.", text_de: "Die besten Torten, die ich je probiert habe! Perfekte Balance aus Geschmack und Dekor. Ich kann nur empfehlen." }
+];
+---
+
+<!-- HERO -->
+<section class="bg-gradient-to-br from-[color:var(--color-crema)] to-[color:var(--color-warm-white)]">
+  <div class="max-w-5xl mx-auto px-5 lg:px-8 pt-16 pb-20 md:pt-24 md:pb-32 text-center">
+    <HeroLogo kicker={dict.hero.kicker} titleTop={dict.hero.title_top} titleBottom={dict.hero.title_bottom} />
+    <p class="mt-8 text-lg md:text-xl text-[color:var(--color-espresso)]/80 max-w-2xl mx-auto leading-relaxed">{dict.hero.subtitle}</p>
+    <div class="mt-10 flex flex-wrap gap-3 justify-center">
+      <TelegramCta label={dict.hero.cta_order} variant="primary" />
+      <a href={localizePath(locale, "/tortes")} class="btn btn-ghost">{dict.hero.cta_browse}</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="py-20 md:py-28">
+  <div class="max-w-5xl mx-auto px-5 lg:px-8 grid md:grid-cols-[1fr_1.4fr] gap-12 items-start">
+    <div>
+      <div class="kicker">{dict.home.intro_kicker}</div>
+      <h2 class="font-display text-4xl md:text-5xl italic text-[color:var(--color-burgundy)] mt-3 leading-tight">{dict.home.intro_title}</h2>
+    </div>
+    <p class="text-[1.05rem] leading-relaxed text-[color:var(--color-espresso)]/85">{dict.home.intro_body}</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="py-12 md:py-16 bg-[color:var(--color-warm-white)] border-y border-[color:var(--color-mist)]">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="kicker text-center">{dict.home.services_kicker}</div>
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
+      <a href={localizePath(locale, "/tortes")} class="group bg-[color:var(--color-crema)] rounded-2xl p-7 hover:-translate-y-1 transition border border-transparent hover:border-[color:var(--color-burgundy)]/30">
+        <div class="kicker text-[color:var(--color-gold)]">01</div>
+        <h3 class="font-display text-3xl mt-3">{dict.home.tortes_title}</h3>
+        <p class="mt-3 text-sm text-[color:var(--color-espresso)]/70 leading-relaxed">{dict.home.tortes_body}</p>
+        <div class="mt-5 font-medium text-sm text-[color:var(--color-burgundy)] group-hover:translate-x-1 transition">{dict.home.tortes_cta} →</div>
+      </a>
+      <a href={localizePath(locale, "/sweets")} class="group bg-[color:var(--color-crema)] rounded-2xl p-7 hover:-translate-y-1 transition border border-transparent hover:border-[color:var(--color-burgundy)]/30">
+        <div class="kicker text-[color:var(--color-gold)]">02</div>
+        <h3 class="font-display text-3xl mt-3">{dict.home.sweets_title}</h3>
+        <p class="mt-3 text-sm text-[color:var(--color-espresso)]/70 leading-relaxed">{dict.home.sweets_body}</p>
+        <div class="mt-5 font-medium text-sm text-[color:var(--color-burgundy)] group-hover:translate-x-1 transition">{dict.home.sweets_cta} →</div>
+      </a>
+      <a href={localizePath(locale, "/journal")} class="group bg-[color:var(--color-crema)] rounded-2xl p-7 hover:-translate-y-1 transition border border-transparent hover:border-[color:var(--color-burgundy)]/30">
+        <div class="kicker text-[color:var(--color-gold)]">03</div>
+        <h3 class="font-display text-3xl mt-3">{dict.home.journal_title}</h3>
+        <p class="mt-3 text-sm text-[color:var(--color-espresso)]/70 leading-relaxed">{dict.home.journal_body}</p>
+        <div class="mt-5 font-medium text-sm text-[color:var(--color-burgundy)] group-hover:translate-x-1 transition">{dict.home.journal_cta} →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED TORTES -->
+{featuredTortes.length > 0 && (
+  <section class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <div class="kicker">Signature</div>
+          <h2 class="font-display italic text-4xl md:text-5xl text-[color:var(--color-burgundy)] mt-2">{dict.tortes.page_title}</h2>
+        </div>
+        <a href={localizePath(locale, "/tortes")} class="hidden sm:inline-flex text-sm font-medium text-[color:var(--color-burgundy)] hover:underline underline-offset-4">{dict.home.tortes_cta} →</a>
+      </div>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {featuredTortes.map(item => <CardTorte item={item} locale={locale} collection="tortes" />)}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- VOICES -->
+<section class="py-20 md:py-24 bg-[color:var(--color-warm-white)] border-y border-[color:var(--color-mist)]">
+  <div class="max-w-5xl mx-auto px-5 lg:px-8">
+    <div class="kicker text-center">{dict.home.voices_kicker}</div>
+    <h2 class="font-display italic text-4xl md:text-5xl text-center text-[color:var(--color-burgundy)] mt-2">{dict.home.voices_title}</h2>
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      {voices.map(v => (
+        <figure class="bg-[color:var(--color-crema)] rounded-2xl p-6 relative">
+          <div class="font-display italic text-[color:var(--color-burgundy)]/20 text-6xl absolute top-2 left-4 leading-none">"</div>
+          <blockquote class="text-[0.95rem] leading-relaxed text-[color:var(--color-espresso)]/85 relative">
+            {locale === "uk" ? v.text_uk : v.text_de}
+          </blockquote>
+          <figcaption class="mt-5 flex items-center gap-3">
+            <span class="w-8 h-8 rounded-full bg-[color:var(--color-burgundy)] text-[color:var(--color-warm-white)] flex items-center justify-center font-display italic text-sm">{v.initial}</span>
+            <span class="text-xs text-[color:var(--color-espresso)]/60">— {locale === "uk" ? "відгук гостя" : "Gästestimme"}</span>
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- RECENT JOURNAL -->
+{recentJournal.length > 0 && (
+  <section class="py-20 md:py-28">
+    <div class="max-w-6xl mx-auto px-5 lg:px-8">
+      <div class="flex items-end justify-between mb-10">
+        <div>
+          <div class="kicker">{dict.home.journal_title}</div>
+          <h2 class="font-display italic text-4xl md:text-5xl text-[color:var(--color-burgundy)] mt-2">{locale === "uk" ? "Свіже з кухні" : "Frisch aus der Backstube"}</h2>
+        </div>
+        <a href={localizePath(locale, "/journal")} class="hidden sm:inline-flex text-sm font-medium text-[color:var(--color-burgundy)] hover:underline underline-offset-4">{dict.home.journal_cta} →</a>
+      </div>
+      <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
+        {recentJournal.map(entry => {
+          const photo = entry.data.photos[0];
+          const cat = categories[entry.data.category] ?? entry.data.category;
+          const href = localizePath(locale, `/journal/${entry.id}`);
+          return (
+            <a href={href} class="group bg-[color:var(--color-warm-white)] rounded-2xl overflow-hidden border border-[color:var(--color-mist)] hover:shadow-lg transition">
+              {photo && <div class="aspect-[4/3] bg-[color:var(--color-mist)] overflow-hidden">
+                <img src={photo} alt={entry.data.title_uk} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+              </div>}
+              <div class="p-4">
+                <div class="kicker text-[0.6rem] text-[color:var(--color-burgundy)]">{cat}</div>
+                <h3 class="font-display text-lg mt-1.5 line-clamp-2">{entry.data.title_uk}</h3>
+                <time class="text-xs text-[color:var(--color-espresso)]/50 mt-2 block">{entry.data.date.slice(0,10)}</time>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}
+
+<!-- CONTACT -->
+<section class="py-20 md:py-28 bg-[color:var(--color-burgundy)] text-[color:var(--color-warm-white)]">
+  <div class="max-w-4xl mx-auto px-5 lg:px-8 text-center">
+    <div class="kicker text-[color:var(--color-gold)]">{dict.home.contact_kicker}</div>
+    <h2 class="font-display italic text-4xl md:text-6xl mt-3 leading-tight">{dict.home.contact_title}</h2>
+    <p class="mt-5 text-lg text-[color:var(--color-warm-white)]/80">{dict.home.contact_body}</p>
+    <div class="mt-10 flex justify-center">
+      <a href="https://t.me/la_dolce_gera" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[color:var(--color-warm-white)] text-[color:var(--color-burgundy)] px-7 py-3.5 rounded-full font-medium hover:scale-105 transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M22 3.5L2 11l6 2 2 7 4-4 5 5z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
+        </svg>
+        {dict.home.contact_cta}
+      </a>
+    </div>
+    <div class="mt-12 grid sm:grid-cols-3 gap-6 text-sm text-[color:var(--color-warm-white)]/80 max-w-2xl mx-auto">
+      <div>
+        <div class="kicker text-[color:var(--color-gold)]">Standort</div>
+        <div class="mt-1.5">Stadtgraben 14<br />07545 Gera</div>
+      </div>
+      <div>
+        <div class="kicker text-[color:var(--color-gold)]">Im</div>
+        <div class="mt-1.5">Restaurant<br />1880 ABACO</div>
+      </div>
+      <div>
+        <div class="kicker text-[color:var(--color-gold)]">Vorbestellung</div>
+        <div class="mt-1.5">min. 3 Tage<br />via Telegram</div>
+      </div>
+    </div>
+  </div>
+</section>

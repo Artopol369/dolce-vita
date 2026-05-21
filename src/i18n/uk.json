@@ -1,0 +1,90 @@
+{
+  "lang": "uk",
+  "site_title": "La Dolce Gera — Кондитерська в 1880 ABACO",
+  "site_tagline": "Домашні торти з серця України. Свіжі з 1880 ABACO у Гері.",
+  "nav": {
+    "home": "Головна",
+    "tortes": "Торти",
+    "sweets": "Солодке",
+    "journal": "Журнал",
+    "impressum": "Impressum",
+    "datenschutz": "Конфіденційність"
+  },
+  "hero": {
+    "kicker": "Caffè · Dolci · Gera",
+    "title_top": "la dolce",
+    "title_bottom": "Gera",
+    "subtitle": "Українська кондитерська у ресторані 1880 ABACO. Авторські торти, капкейки, печиво — ручна робота, мінімум 3 дні на замовлення.",
+    "cta_order": "Замовити в Telegram",
+    "cta_browse": "Подивитись торти"
+  },
+  "home": {
+    "intro_kicker": "Про нас",
+    "intro_title": "Солодке з душею.",
+    "intro_body": "Дарья та Nataliia печуть з липня 2024 для родин Гери та околиць. Класичні українські рецепти — Наполеон, Медівник — поряд з французькою класикою: Фрезʼє, Шварцвальдський, мусові торти. Замовлення через Telegram, самовивіз з 1880 ABACO.",
+    "services_kicker": "Що ми робимо",
+    "tortes_title": "Авторські торти",
+    "tortes_body": "Класичні та французькі рецепти від 20 €/кг. Мінімум 3 дні на замовлення.",
+    "sweets_title": "Капкейки та печиво",
+    "sweets_body": "Брауні, чізкейк-капкейки, печиво з M&Ms — для садочка, школи, офісу або кенді-бару.",
+    "journal_title": "Журнал",
+    "journal_body": "Що цього тижня свіже у вітрині. Справжні замовлення, справжні реакції.",
+    "journal_cta": "Дивитись журнал",
+    "tortes_cta": "До тортів",
+    "sweets_cta": "До солодкого",
+    "voices_kicker": "Що кажуть гості",
+    "voices_title": "Голоси з сусідства",
+    "contact_kicker": "Як нас знайти",
+    "contact_title": "Stadtgraben 14, 07545 Gera",
+    "contact_body": "У ресторані 1880 ABACO. Самовивіз за домовленістю через Telegram.",
+    "contact_cta": "Написати в Telegram"
+  },
+  "tortes": {
+    "page_title": "Торти",
+    "page_subtitle": "На замовлення. Ручна робота. З любовʼю.",
+    "intro": "Усі торти готуються свіжими, на замовлення. Мінімум 3 дні наперед, від 1 кг. Стандартний декор включено — інший декор сплачується по чеку.",
+    "price_per_kg": "{price} €/кг",
+    "price_per_piece": "{price} € / шт",
+    "lead_time": "Замовлення: {days} дні",
+    "card_cta": "Замовити",
+    "allergens_label": "Алергени",
+    "allergens_note": "Актуальну інформацію про алергени надаємо у Telegram на ваш запит."
+  },
+  "sweets": {
+    "page_title": "Солодке",
+    "page_subtitle": "Маленький формат, велике враження.",
+    "intro": "Капкейки, печиво, брауні — для садочка, школи, офісу або як доповнення до кенді-бару."
+  },
+  "journal": {
+    "page_title": "Журнал",
+    "page_subtitle": "Що цього тижня з нашої кухні.",
+    "intro": "Добірка наших дописів з Telegram-каналу. Те, що є в наявності, закулісся та улюблені замовлення.",
+    "categories": {
+      "in_stock": "Сьогодні в наявності",
+      "showcase": "Вітрина",
+      "delivered": "Віддали",
+      "event_teaser": "Анонс",
+      "testimonial": "Відгук",
+      "seasonal": "Сезонне"
+    },
+    "read_more": "Читати далі"
+  },
+  "footer": {
+    "address_line": "1880 ABACO · Stadtgraben 14 · 07545 Gera",
+    "contact_line": "Telegram: @la_dolce_gera",
+    "copyright": "© 2026 La Dolce Gera"
+  },
+  "placeholder_notice": "Демоверсія сайту. Юридичні дані буде доповнено перед публікацією.",
+  "allergens": {
+    "gluten": "Глютен",
+    "eggs": "Яйця",
+    "milk": "Молоко",
+    "nuts": "Горіхи",
+    "soy": "Соя",
+    "sesame": "Кунжут",
+    "honey": "Мед",
+    "cherry": "Кісточкові",
+    "poppy": "Мак"
+  },
+  "cta_telegram": "Написати в Telegram"
+}

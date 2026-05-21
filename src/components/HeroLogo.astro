@@ -1,0 +1,11 @@
+---
+interface Props { kicker: string; titleTop: string; titleBottom: string }
+const { kicker, titleTop, titleBottom } = Astro.props;
+---
+<div class="text-center">
+  <div class="kicker mb-3">{kicker}</div>
+  <div class="font-display italic text-[color:var(--color-burgundy)] leading-[0.95]">
+    <div class="text-5xl sm:text-7xl md:text-8xl">{titleTop}</div>
+    <div class="text-6xl sm:text-8xl md:text-9xl font-semibold tracking-tight">{titleBottom}</div>
+  </div>
+</div>

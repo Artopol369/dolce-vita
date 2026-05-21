@@ -1,0 +1,36 @@
+---
+import { type Locale, t, localizePath } from "../i18n/ui";
+import TelegramCta from "./TelegramCta.astro";
+
+interface Props { entry: any; locale: Locale; Content: any }
+const { entry, locale, Content } = Astro.props;
+const dict = t(locale);
+const cats = dict.journal.categories as Record<string, string>;
+const cat = cats[entry.data.category] ?? entry.data.category;
+const date = entry.data.date.slice(0, 10);
+---
+<article class="max-w-3xl mx-auto px-5 lg:px-8 py-14 md:py-20">
+  <a href={localizePath(locale, "/journal")} class="kicker text-[color:var(--color-burgundy)]/70 hover:text-[color:var(--color-burgundy)]">← {dict.journal.page_title}</a>
+  <div class="kicker mt-6">{cat}</div>
+  <h1 class="font-display italic text-4xl md:text-5xl text-[color:var(--color-burgundy)] mt-2 leading-tight">{entry.data.title_uk}</h1>
+  <time class="text-sm text-[color:var(--color-espresso)]/55 mt-2 block">{date}</time>
+
+  {entry.data.photos.length > 0 && (
+    <div class={`mt-8 grid ${entry.data.photos.length > 1 ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-1"} gap-3`}>
+      {entry.data.photos.map((p: string) => (
+        <div class="aspect-[4/5] bg-[color:var(--color-mist)] rounded-2xl overflow-hidden">
+          <img src={p} alt={entry.data.title_uk} class="w-full h-full object-cover" loading="lazy" />
+        </div>
+      ))}
+    </div>
+  )}
+
+  <div class="mt-10 prose prose-stone text-[color:var(--color-espresso)]/90 leading-relaxed">
+    <Content />
+  </div>
+
+  <div class="mt-12 pt-8 border-t border-[color:var(--color-mist)] flex flex-wrap items-center justify-between gap-4">
+    <p class="text-sm text-[color:var(--color-espresso)]/65">{locale === "uk" ? "Сподобалось? Замовте такий же або обговоримо ваш варіант." : "Gefällt euch? Bestellt direkt oder besprecht euren Wunsch."}</p>
+    <TelegramCta label={dict.cta_telegram} variant="primary" />
+  </div>
+</article>

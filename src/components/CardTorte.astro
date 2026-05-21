@@ -1,0 +1,50 @@
+---
+import { type Locale, t, pickBilingual, localizePath } from "../i18n/ui";
+import AllergenList from "./AllergenList.astro";
+
+interface Props {
+  item: any;
+  locale: Locale;
+  collection: "tortes" | "sweets";
+}
+const { item, locale, collection } = Astro.props;
+const dict = t(locale);
+const title = pickBilingual(item.data, locale, "title");
+const summary = pickBilingual(item.data, locale, "summary");
+const hero = item.data.hero_image ?? item.data.gallery?.[0];
+const slugPath = localizePath(locale, `/${collection}/${item.id}`);
+
+let priceLabel: string | null = null;
+if (item.data.price_per_kg_eur) {
+  priceLabel = dict.tortes.price_per_kg.replace("{price}", String(item.data.price_per_kg_eur));
+} else if (item.data.price_per_piece_eur) {
+  priceLabel = dict.tortes.price_per_piece.replace("{price}", String(item.data.price_per_piece_eur));
+}
+---
+<article class="group bg-[color:var(--color-warm-white)] rounded-2xl overflow-hidden border border-[color:var(--color-mist)] hover:shadow-xl hover:border-[color:var(--color-burgundy)]/30 transition-all duration-300">
+  <a href={slugPath} class="block">
+    <div class="aspect-[4/5] bg-[color:var(--color-mist)] overflow-hidden relative">
+      {hero ? (
+        <img src={hero} alt={title} loading="lazy" decoding="async" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+      ) : (
+        <div class="w-full h-full flex items-center justify-center text-[color:var(--color-burgundy)]/40 font-display italic text-3xl">{title}</div>
+      )}
+      {item.data.featured && (
+        <span class="absolute top-3 left-3 inline-flex items-center gap-1 bg-[color:var(--color-burgundy)] text-[color:var(--color-warm-white)] px-3 py-1.5 rounded-full text-[0.68rem] font-medium tracking-[0.18em] uppercase shadow-md">
+          <span class="text-[color:var(--color-gold)]">★</span> Signature
+        </span>
+      )}
+    </div>
+    <div class="p-5">
+      <h3 class="font-display text-2xl text-[color:var(--color-espresso)] leading-tight">{title}</h3>
+      {summary && <p class="mt-2 text-sm text-[color:var(--color-espresso)]/70 line-clamp-2">{summary}</p>}
+      <div class="mt-4 flex items-end justify-between gap-3">
+        <div>
+          {priceLabel && <div class="font-medium text-[color:var(--color-burgundy)]">{priceLabel}</div>}
+          {item.data.lead_time_days && <div class="text-xs text-[color:var(--color-espresso)]/60 mt-0.5">{dict.tortes.lead_time.replace("{days}", String(item.data.lead_time_days))}</div>}
+        </div>
+        <span class="text-sm font-medium text-[color:var(--color-burgundy)] opacity-0 group-hover:opacity-100 transition">{dict.tortes.card_cta} →</span>
+      </div>
+    </div>
+  </a>
+</article>

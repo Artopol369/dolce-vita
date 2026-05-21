@@ -1,0 +1,90 @@
+{
+  "lang": "de",
+  "site_title": "La Dolce Gera — Konditorei im 1880 ABACO",
+  "site_tagline": "Hausgemachte Torten aus dem Herzen der Ukraine. Frisch aus 1880 ABACO Gera.",
+  "nav": {
+    "home": "Startseite",
+    "tortes": "Torten",
+    "sweets": "Süßes",
+    "journal": "Journal",
+    "impressum": "Impressum",
+    "datenschutz": "Datenschutz"
+  },
+  "hero": {
+    "kicker": "Caffè · Dolci · Gera",
+    "title_top": "la dolce",
+    "title_bottom": "Gera",
+    "subtitle": "Ukrainische Konditorei im Restaurant 1880 ABACO. Maßgefertigte Torten, Cupcakes, Plätzchen — handgemacht, mit 3 Tagen Vorbestellung.",
+    "cta_order": "Bei Telegram bestellen",
+    "cta_browse": "Torten ansehen"
+  },
+  "home": {
+    "intro_kicker": "Über uns",
+    "intro_title": "Süßes mit Seele.",
+    "intro_body": "Дарья und Nataliia backen seit Juli 2024 für die Familien in und um Gera. Klassische ukrainische Rezepte wie Napoleon und Medivnyk treffen auf französische Klassiker — Frézier, Black-Forest, Mousse-Torten. Bestellt wird über Telegram, abgeholt im 1880 ABACO.",
+    "services_kicker": "Was wir machen",
+    "tortes_title": "Maßgefertigte Torten",
+    "tortes_body": "Klassische und französische Rezepte ab 20 €/kg. Mindestens 3 Tage Vorbestellung.",
+    "sweets_title": "Cupcakes & Plätzchen",
+    "sweets_body": "Brownies, Cheesecake-Cupcakes, M&M-Cookies — perfekt für Kindergarten, Büro oder Candybar.",
+    "journal_title": "Journal",
+    "journal_body": "Was diese Woche frisch in der Vitrine steht. Echte Bestellungen, echte Reaktionen.",
+    "journal_cta": "Im Journal stöbern",
+    "tortes_cta": "Zur Tortenkarte",
+    "sweets_cta": "Zur Süßwarenkarte",
+    "voices_kicker": "Was Gäste sagen",
+    "voices_title": "Stimmen aus der Nachbarschaft",
+    "contact_kicker": "So findet ihr uns",
+    "contact_title": "Stadtgraben 14, 07545 Gera",
+    "contact_body": "Im Restaurant 1880 ABACO. Abholung nach Terminvereinbarung über Telegram.",
+    "contact_cta": "In Telegram schreiben"
+  },
+  "tortes": {
+    "page_title": "Torten",
+    "page_subtitle": "Maßgefertigt. Handgemacht. Mit Liebe.",
+    "intro": "Alle Torten werden frisch und auf Bestellung gefertigt. Mindestens 3 Tage Vorlauf, ab 1 kg. Standarddekor inklusive — individuelles Dekor nach Aufwand.",
+    "price_per_kg": "{price} €/kg",
+    "price_per_piece": "{price} € / Stück",
+    "lead_time": "Vorbestellung: {days} Tage",
+    "card_cta": "Anfragen",
+    "allergens_label": "Allergene",
+    "allergens_note": "Aktuelle Allergeninformationen erhalten Sie auf Anfrage über Telegram."
+  },
+  "sweets": {
+    "page_title": "Süßes",
+    "page_subtitle": "Kleines Format, große Wirkung.",
+    "intro": "Cupcakes, Cookies, Brownies — perfekt für Kindergarten, Schule, Büro oder als Candybar-Ergänzung."
+  },
+  "journal": {
+    "page_title": "Journal",
+    "page_subtitle": "Was diese Woche aus der Backstube kam.",
+    "intro": "Eine Auswahl unserer Beiträge aus dem Telegram-Kanal. Aktuell Verfügbares, Hinter-den-Kulissen und Lieblingsbestellungen.",
+    "categories": {
+      "in_stock": "Heute verfügbar",
+      "showcase": "Vitrine",
+      "delivered": "Ausgeliefert",
+      "event_teaser": "Ankündigung",
+      "testimonial": "Gästestimme",
+      "seasonal": "Saison"
+    },
+    "read_more": "Weiterlesen"
+  },
+  "footer": {
+    "address_line": "1880 ABACO · Stadtgraben 14 · 07545 Gera",
+    "contact_line": "Telegram: @la_dolce_gera",
+    "copyright": "© 2026 La Dolce Gera"
+  },
+  "placeholder_notice": "Demo-Version dieser Webseite. Die endgültigen rechtlichen Angaben werden vor der Veröffentlichung ergänzt.",
+  "allergens": {
+    "gluten": "Gluten",
+    "eggs": "Eier",
+    "milk": "Milch",
+    "nuts": "Nüsse",
+    "soy": "Soja",
+    "sesame": "Sesam",
+    "honey": "Honig",
+    "cherry": "Steinobst",
+    "poppy": "Mohn"
+  },
+  "cta_telegram": "In Telegram bestellen"
+}

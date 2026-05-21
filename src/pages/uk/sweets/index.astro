@@ -1,0 +1,9 @@
+---
+import Base from "../../../layouts/Base.astro";
+import CatalogIndex from "../../../components/CatalogIndex.astro";
+import { t } from "../../../i18n/ui";
+const dict = t("uk");
+---
+<Base title={dict.sweets.page_title} description={dict.sweets.page_subtitle}>
+  <CatalogIndex locale="uk" collection="sweets" />
+</Base>

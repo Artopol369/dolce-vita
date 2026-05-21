@@ -1,0 +1,15 @@
+---
+import { getCollection, render } from "astro:content";
+import Base from "../../layouts/Base.astro";
+import JournalDetail from "../../components/JournalDetail.astro";
+
+export async function getStaticPaths() {
+  const items = await getCollection("journal");
+  return items.map(entry => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+---
+<Base title={entry.data.title_uk}>
+  <JournalDetail entry={entry} locale="de" Content={Content} />
+</Base>
