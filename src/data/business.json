@@ -1,0 +1,71 @@
+{
+  "name": "La Dolce Gera",
+  "tagline_de": "Ukrainische Konditorei in Gera",
+  "tagline_uk": "Українська кондитерська в Гері",
+  "founded_year": 2023,
+  "owners": [
+    {
+      "name": "Дарʼя Громова",
+      "role_de": "Inhaberin & Chefkonditorin",
+      "role_uk": "Власниця та шеф-кондитер",
+      "photo": "/images/team/daria.jpg",
+      "bio_de": "Daria backt seit über 12 Jahren — zuerst in Kyjiw, seit 2022 in Gera. Ihre Signature-Torten verbinden ukrainische Tradition (Medivnyk, Mohnkuchen) mit moderner Pâtisserie.",
+      "bio_uk": "Дарʼя пече вже понад 12 років — спочатку в Києві, з 2022 року — в Гері. Її фірмові торти поєднують українську традицію (медівник, маковий) із сучасною патисьє."
+    },
+    {
+      "name": "Наталія Коваль",
+      "role_de": "Bestellungen & Kundenservice",
+      "role_uk": "Замовлення та клієнтський сервіс",
+      "photo": "/images/team/nataliia.jpg",
+      "bio_de": "Nataliia koordiniert alle Bestellungen über Telegram und sorgt dafür, dass jeder Kuchen pünktlich abgeholt oder geliefert wird.",
+      "bio_uk": "Наталія координує всі замовлення в Telegram і слідкує, щоб кожен торт був вчасно отриманий або доставлений."
+    }
+  ],
+  "address": {
+    "street": "Heinrichstraße 47",
+    "zip": "07545",
+    "city": "Gera",
+    "country_de": "Deutschland",
+    "country_uk": "Німеччина",
+    "note_de": "Abholung nur nach Vereinbarung — wir sind eine reine Bestellbäckerei, kein Ladengeschäft.",
+    "note_uk": "Самовивіз лише за домовленістю — ми працюємо тільки на замовлення, не магазин."
+  },
+  "hours": [
+    { "day_de": "Mo–Fr", "day_uk": "Пн–Пт", "open": "09:00", "close": "18:00", "label_de": "Bestellannahme via Telegram", "label_uk": "Прийом замовлень у Telegram" },
+    { "day_de": "Sa",    "day_uk": "Сб",    "open": "10:00", "close": "14:00", "label_de": "Abholung",                    "label_uk": "Самовивіз" },
+    { "day_de": "So",    "day_uk": "Нд",    "open": null,    "close": null,    "label_de": "Geschlossen",                "label_uk": "Вихідний" }
+  ],
+  "contacts": {
+    "telegram_channel": "@ladolcegera",
+    "telegram_orders":  "@ladolcegera_order",
+    "telegram_url":     "https://t.me/ladolcegera_order",
+    "whatsapp_e164":    "+4936555301247",
+    "whatsapp_url":     "https://wa.me/4936555301247",
+    "phone":            "+49 365 5530 1247",
+    "email":            "hallo@ladolcegera.de",
+    "instagram":        "@la.dolce.gera"
+  },
+  "delivery": {
+    "self_pickup_de":   "Selbstabholung in Gera-Zentrum",
+    "self_pickup_uk":   "Самовивіз у центрі Гери",
+    "delivery_radius_km": 15,
+    "delivery_fee_eur":   8,
+    "delivery_note_de": "Lieferung innerhalb Gera & Umgebung (bis 15 km) — 8 €. Außerhalb auf Anfrage.",
+    "delivery_note_uk": "Доставка по Гері та околицях (до 15 км) — 8 €. Поза межами — за домовленістю."
+  },
+  "lead_time": {
+    "standard_days": 3,
+    "kids_party_days": 5,
+    "wedding_days": 14,
+    "note_de": "Standardvorlauf 3 Tage. Für Kindergeburtstage 5 Tage, Hochzeitstorten 14 Tage im Voraus.",
+    "note_uk": "Стандартний термін — 3 дні. Дитячі свята — 5 днів, весільні торти — 14 днів."
+  },
+  "legal": {
+    "business_name": "Daria Gromova — La Dolce Gera",
+    "tax_id_label_de": "USt-IdNr.",
+    "tax_id_label_uk": "Податковий номер",
+    "tax_id_placeholder": "DE-PLACEHOLDER-12345",
+    "registered_de": "Kleinunternehmen nach § 19 UStG",
+    "registered_uk": "Малий підприємець за § 19 UStG"
+  }
+}

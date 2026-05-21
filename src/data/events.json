@@ -1,0 +1,113 @@
+[
+  {
+    "id": "ev-kids-party",
+    "slug": "kinderparty",
+    "title_de": "Kinder-Geburtstagsparty",
+    "title_uk": "Дитячий день народження",
+    "summary_de": "Komplettes Süß-Paket für Kinderfeiern ab 6 Gästen — Torte, Cupcakes, Cookies, Themen-Dekoration.",
+    "summary_uk": "Повний десертний пакет для дитячих свят від 6 гостей — торт, капкейки, печиво, тематичний декор.",
+    "guests_min": 6,
+    "guests_max": 25,
+    "lead_time_days": 5,
+    "price_from_eur": 89,
+    "includes_de": [
+      "1 individueller Themen-Torte (1–2 kg)",
+      "12 dekorierte Cupcakes",
+      "20 Themen-Cookies (Einhorn, Dino, Auto, Prinzessin …)",
+      "Kostenloses Topper-Set zur Mitnahme",
+      "Anlieferung in Gera inkl."
+    ],
+    "includes_uk": [
+      "1 індивідуальний тематичний торт (1–2 кг)",
+      "12 декорованих капкейків",
+      "20 тематичних печивок (єдиноріг, динозавр, машинка, принцеса …)",
+      "Безкоштовний набір топерів",
+      "Доставка по Гері включена"
+    ],
+    "hero_image": "/images/events/kids-party.jpg",
+    "themes": ["Einhorn / Єдиноріг", "Dino / Динозаври", "Prinzessin / Принцеса", "Weltraum / Космос", "Tiere / Тварини"]
+  },
+  {
+    "id": "ev-wedding",
+    "slug": "hochzeit",
+    "title_de": "Hochzeitstorte",
+    "title_uk": "Весільний торт",
+    "summary_de": "Mehrstöckige Hochzeitstorten mit kostenloser Verkostung vorab. Klassisch oder modern, immer maßgeschneidert.",
+    "summary_uk": "Багатоярусні весільні торти з безкоштовною дегустацією до замовлення. Класика або модерн — завжди під вас.",
+    "guests_min": 30,
+    "guests_max": 200,
+    "lead_time_days": 14,
+    "price_from_eur": 280,
+    "includes_de": [
+      "Verkostungstermin in der Konditorei (3 Sorten)",
+      "Skizze & Farbabstimmung",
+      "2–4 Stockwerke nach Wunsch",
+      "Frische Blumen oder Zuckerblumen",
+      "Lieferung & Aufbau am Veranstaltungsort"
+    ],
+    "includes_uk": [
+      "Дегустація у кондитерській (3 смаки)",
+      "Скетч і підбір кольору",
+      "2–4 яруси за бажанням",
+      "Свіжі або цукрові квіти",
+      "Доставка та збірка на місці події"
+    ],
+    "hero_image": "/images/events/wedding.jpg",
+    "themes": ["Klassisch weiß / Класична біла", "Naked Cake", "Floral / З квітами", "Modern minimalistisch / Сучасна мінімалістична"]
+  },
+  {
+    "id": "ev-corporate",
+    "slug": "firmenfeier",
+    "title_de": "Firmenfeier & Büro-Catering",
+    "title_uk": "Корпоратив та офісний кейтеринг",
+    "summary_de": "Süßes für Team-Events, Geburtstage im Büro, Weihnachtsfeiern. Rechnung mit USt-Ausweis.",
+    "summary_uk": "Десерти для тімбілдінгів, офісних свят, корпоративів. Рахунок з ПДВ.",
+    "guests_min": 8,
+    "guests_max": 60,
+    "lead_time_days": 4,
+    "price_from_eur": 6,
+    "price_unit_de": "ab 6 €/Person",
+    "price_unit_uk": "від 6 €/особу",
+    "includes_de": [
+      "Auswahl aus Brownies, Cookies, Cupcakes, Mini-Tortenstücken",
+      "Beschriftung mit Firmen-Logo (essbarer Druck) möglich",
+      "Lieferung Mo–Fr in Gera kostenlos",
+      "Geschäftsrechnung"
+    ],
+    "includes_uk": [
+      "Вибір з брауні, печива, капкейків, міні-шматочків торта",
+      "Маркування логотипом компанії (їстівний друк)",
+      "Доставка Пн–Пт по Гері безкоштовна",
+      "Рахунок-фактура для бухгалтерії"
+    ],
+    "hero_image": "/images/events/corporate.jpg"
+  },
+  {
+    "id": "ev-seasonal-christmas",
+    "slug": "weihnachten-2026",
+    "title_de": "Weihnachten 2026 — Vorbestellung",
+    "title_uk": "Різдво 2026 — попереднє замовлення",
+    "summary_de": "Medivnyk, Mohnkuchen, Lebkuchen-Boxen, Stollen mit Marzipan. Vorbestellung bis 15. Dezember.",
+    "summary_uk": "Медівник, маковий торт, набори пряників, штоллен з марципаном. Попереднє замовлення до 15 грудня.",
+    "guests_min": 1,
+    "guests_max": 50,
+    "lead_time_days": 7,
+    "price_from_eur": 22,
+    "available_from": "2026-11-15",
+    "available_until": "2026-12-23",
+    "includes_de": [
+      "Klassische ukrainische Weihnachtskuchen",
+      "Lebkuchen-Geschenkboxen ab 12 €",
+      "Stollen 500 g / 1 kg",
+      "Lieferung in Gera bis 23. Dezember garantiert"
+    ],
+    "includes_uk": [
+      "Класичні українські різдвяні випічки",
+      "Подарункові набори пряників від 12 €",
+      "Штоллен 500 г / 1 кг",
+      "Доставка по Гері до 23 грудня гарантовано"
+    ],
+    "hero_image": "/images/events/christmas.jpg",
+    "seasonal": true
+  }
+]

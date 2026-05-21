@@ -1,0 +1,51 @@
+[
+  {
+    "id": "faq-portions",
+    "q_de": "Für wie viele Personen reicht eine 1-kg-Torte?",
+    "q_uk": "На скільки людей вистачить торта вагою 1 кг?",
+    "a_de": "1 kg = etwa 8–10 Portionen (Dessertstück) oder 6–8 großzügige Stücke. Für eine Hauptnachspeise rechnen wir 150 g pro Person.",
+    "a_uk": "1 кг = приблизно 8–10 порцій (десертний шматок) або 6–8 щедрих. Як основний десерт рахуємо 150 г на людину."
+  },
+  {
+    "id": "faq-lead-time",
+    "q_de": "Wie viel Vorlaufzeit braucht ihr für eine Bestellung?",
+    "q_uk": "Скільки часу потрібно для замовлення?",
+    "a_de": "Standardtorten: 3 Tage im Voraus. Kindergeburtstage mit Custom-Design: 5 Tage. Hochzeitstorten: mindestens 14 Tage. Bei freier Kapazität sind auch kürzere Termine möglich — bitte direkt fragen.",
+    "a_uk": "Стандартні торти: за 3 дні. Дитячі з кастомним дизайном: 5 днів. Весільні: щонайменше 14 днів. Якщо є вільне вікно — можемо швидше, питайте."
+  },
+  {
+    "id": "faq-gluten-free",
+    "q_de": "Bietet ihr glutenfreie oder vegane Optionen an?",
+    "q_uk": "Чи робите ви безглютенові або веганські варіанти?",
+    "a_de": "Glutenfrei: Cheesecake, Brownie (auf Anfrage), drei Schokoladen. Vegan: in Vorbereitung — ab Sommer 2026. Bei Allergien immer direkt schreiben — wir backen in einer Küche, in der Gluten, Eier und Nüsse verarbeitet werden.",
+    "a_uk": "Без глютену: чізкейк, брауні (за запитом), три шоколади. Веганське: у розробці — з літа 2026. При алергіях обовʼязково пишіть — ми працюємо на одній кухні з борошном, яйцями та горіхами."
+  },
+  {
+    "id": "faq-custom-design",
+    "q_de": "Macht ihr individuelle Dekorationen (Logo, Foto, Farbe)?",
+    "q_uk": "Чи робите індивідуальний декор (логотип, фото, колір)?",
+    "a_de": "Ja — essbarer Druck, Zuckerblumen, Themen-Topper, Farbabstimmung auf Einladung oder Outfit. Aufpreis je nach Komplexität (10–40 €). Schickt uns einfach ein Inspirationsbild via Telegram.",
+    "a_uk": "Так — їстівний друк, цукрові квіти, тематичні топери, підбір кольору під запрошення чи сукню. Доплата залежить від складності (10–40 €). Просто надішліть нам референс у Telegram."
+  },
+  {
+    "id": "faq-delivery",
+    "q_de": "Liefert ihr nach Hause?",
+    "q_uk": "Чи доставляєте додому?",
+    "a_de": "Innerhalb Gera & 15 km Umkreis: 8 € Pauschale. Größere Strecken (Jena, Erfurt, Zwickau) auf Anfrage. Standard ist Selbstabholung in der Heinrichstraße — nach Terminvereinbarung.",
+    "a_uk": "По Гері та в радіусі 15 км: 8 €. Далі (Єна, Ерфурт, Цвіккау) — за домовленістю. Базово — самовивіз з Heinrichstraße за попередньою домовленістю."
+  },
+  {
+    "id": "faq-payment",
+    "q_de": "Wie kann ich bezahlen?",
+    "q_uk": "Як можна оплатити?",
+    "a_de": "Überweisung (SEPA), Bar bei Abholung, oder PayPal. Bei Bestellungen über 100 € bitten wir um eine Anzahlung von 30 %.",
+    "a_uk": "Банківський переказ (SEPA), готівка при отриманні, або PayPal. Для замовлень понад 100 € просимо передплату 30 %."
+  },
+  {
+    "id": "faq-cancel",
+    "q_de": "Kann ich eine Bestellung stornieren?",
+    "q_uk": "Чи можу я скасувати замовлення?",
+    "a_de": "Bis 48 Stunden vor Liefertermin kostenlos. Danach behalten wir die Anzahlung ein — wir haben dann meist schon Zutaten besorgt und mit der Vorbereitung begonnen.",
+    "a_uk": "До 48 годин до дати — безкоштовно. Після — передплата залишається у нас, бо інгредієнти вже куплені й роботу розпочато."
+  }
+]

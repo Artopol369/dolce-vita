@@ -1,7 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
 import HomeContent from "../components/HomeContent.astro";
+import StructuredData from "../components/StructuredData.astro";
 ---
 <Base>
+  <StructuredData locale="de" page="home" slot="head" />
   <HomeContent locale="de" />
 </Base>

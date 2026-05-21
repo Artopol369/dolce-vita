@@ -4,6 +4,10 @@ import { t, type Locale, pickBilingual, localizePath } from "../i18n/ui";
 import HeroLogo from "./HeroLogo.astro";
 import TelegramCta from "./TelegramCta.astro";
 import CardTorte from "./CardTorte.astro";
+import business from "../data/business.json";
+import testimonials from "../data/testimonials.json";
+import orderProcess from "../data/order-process.json";
+import faq from "../data/faq.json";
 
 interface Props { locale: Locale }
 const { locale } = Astro.props;
@@ -17,11 +21,11 @@ const featuredTortes = tortes.filter(t => t.data.featured).slice(0, 3);
 const recentJournal = journal.slice(0, 6);
 const categories = dict.journal.categories as Record<string, string>;
 
-const voices = [
-  { initial: "S", text_uk: "Це самі смачні тортики, які я пробувала будь-де! Шикарний смак, дизайн на будь-який смак, індивідуальний підхід.", text_de: "Das sind die leckersten Torten, die ich je probiert habe! Wundervoller Geschmack, Design nach Wunsch, individuelle Betreuung." },
-  { initial: "A", text_uk: "Дякую за дуже смачний Наполеон, неймовірний на смак. Тепер я ваш постійний клієнт.", text_de: "Vielen Dank für den unglaublich leckeren Napoleon. Jetzt bin ich Stammgast." },
-  { initial: "N", text_uk: "Найсмачніші торти, які я коштувала! Ідеальне поєднання смаків і декору. Всім щиро рекомендую.", text_de: "Die besten Torten, die ich je probiert habe! Perfekte Balance aus Geschmack und Dekor. Ich kann nur empfehlen." }
-];
+const voices = testimonials.slice(0, 3);
+const steps = orderProcess.steps;
+const faqItems = faq.slice(0, 5);
+const owners = business.owners;
+const isUk = locale === "uk";
 ---
 
 <!-- HERO -->
@@ -92,8 +96,58 @@ const voices = [
   </section>
 )}
 
-<!-- VOICES -->
+<!-- ABOUT / OWNERS -->
+<section class="py-20 md:py-24">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="kicker text-center">{isUk ? "Хто ми" : "Wer wir sind"}</div>
+    <h2 class="font-display italic text-4xl md:text-5xl text-center text-[color:var(--color-burgundy)] mt-2">{isUk ? "Двоє жінок, одна кухня" : "Zwei Frauen, eine Backstube"}</h2>
+    <div class="mt-12 grid md:grid-cols-2 gap-8">
+      {owners.map(o => (
+        <article class="bg-[color:var(--color-crema)] rounded-2xl p-7 border border-transparent hover:border-[color:var(--color-burgundy)]/20 transition">
+          <div class="flex items-center gap-4">
+            <div class="w-16 h-16 rounded-full bg-[color:var(--color-burgundy)] text-[color:var(--color-warm-white)] flex items-center justify-center font-display italic text-2xl shrink-0">
+              {o.name.split(" ").map(s => s[0]).join("").slice(0,2)}
+            </div>
+            <div>
+              <div class="font-display text-2xl text-[color:var(--color-burgundy)]">{o.name}</div>
+              <div class="kicker text-[0.65rem] mt-1">{isUk ? o.role_uk : o.role_de}</div>
+            </div>
+          </div>
+          <p class="mt-5 text-[0.95rem] leading-relaxed text-[color:var(--color-espresso)]/85">
+            {isUk ? o.bio_uk : o.bio_de}
+          </p>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ORDER PROCESS -->
 <section class="py-20 md:py-24 bg-[color:var(--color-warm-white)] border-y border-[color:var(--color-mist)]">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8">
+    <div class="kicker text-center">{isUk ? "Як замовити" : "So bestellt ihr"}</div>
+    <h2 class="font-display italic text-4xl md:text-5xl text-center text-[color:var(--color-burgundy)] mt-2">
+      {isUk ? orderProcess.intro_uk : orderProcess.intro_de}
+    </h2>
+    <ol class="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+      {steps.map(s => (
+        <li class="bg-[color:var(--color-crema)] rounded-2xl p-5">
+          <div class="font-display italic text-[color:var(--color-gold)] text-4xl leading-none">{s.n.toString().padStart(2, "0")}</div>
+          <h3 class="font-display text-xl mt-3 text-[color:var(--color-burgundy)]">{isUk ? s.title_uk : s.title_de}</h3>
+          <p class="mt-2 text-sm text-[color:var(--color-espresso)]/75 leading-relaxed">{isUk ? s.body_uk : s.body_de}</p>
+        </li>
+      ))}
+    </ol>
+    <div class="mt-10 text-center">
+      <a href={orderProcess.cta_link} target="_blank" rel="noopener" class="btn btn-primary">
+        {isUk ? orderProcess.cta_uk : orderProcess.cta_de}
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VOICES -->
+<section class="py-20 md:py-24">
   <div class="max-w-5xl mx-auto px-5 lg:px-8">
     <div class="kicker text-center">{dict.home.voices_kicker}</div>
     <h2 class="font-display italic text-4xl md:text-5xl text-center text-[color:var(--color-burgundy)] mt-2">{dict.home.voices_title}</h2>
@@ -102,13 +156,37 @@ const voices = [
         <figure class="bg-[color:var(--color-crema)] rounded-2xl p-6 relative">
           <div class="font-display italic text-[color:var(--color-burgundy)]/20 text-6xl absolute top-2 left-4 leading-none">"</div>
           <blockquote class="text-[0.95rem] leading-relaxed text-[color:var(--color-espresso)]/85 relative">
-            {locale === "uk" ? v.text_uk : v.text_de}
+            {isUk ? v.text_uk : v.text_de}
           </blockquote>
           <figcaption class="mt-5 flex items-center gap-3">
-            <span class="w-8 h-8 rounded-full bg-[color:var(--color-burgundy)] text-[color:var(--color-warm-white)] flex items-center justify-center font-display italic text-sm">{v.initial}</span>
-            <span class="text-xs text-[color:var(--color-espresso)]/60">— {locale === "uk" ? "відгук гостя" : "Gästestimme"}</span>
+            <span class="w-8 h-8 rounded-full bg-[color:var(--color-burgundy)] text-[color:var(--color-warm-white)] flex items-center justify-center font-display italic text-sm">
+              {v.author.split(" ").map(s => s[0]).join("").slice(0,2)}
+            </span>
+            <div class="text-xs text-[color:var(--color-espresso)]/70 leading-tight">
+              <div>{v.author}</div>
+              <div class="text-[color:var(--color-espresso)]/50">{v.city} · {v.date.slice(0,7)}</div>
+            </div>
           </figcaption>
         </figure>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="py-20 md:py-24 bg-[color:var(--color-warm-white)] border-y border-[color:var(--color-mist)]">
+  <div class="max-w-3xl mx-auto px-5 lg:px-8">
+    <div class="kicker text-center">FAQ</div>
+    <h2 class="font-display italic text-4xl md:text-5xl text-center text-[color:var(--color-burgundy)] mt-2">{isUk ? "Часті питання" : "Häufige Fragen"}</h2>
+    <div class="mt-10 divide-y divide-[color:var(--color-mist)] border-y border-[color:var(--color-mist)]">
+      {faqItems.map(item => (
+        <details class="group py-5">
+          <summary class="cursor-pointer list-none flex items-start justify-between gap-4">
+            <span class="font-medium text-[1.02rem] text-[color:var(--color-espresso)]">{isUk ? item.q_uk : item.q_de}</span>
+            <span class="text-[color:var(--color-burgundy)] font-display italic text-2xl leading-none shrink-0 group-open:rotate-45 transition-transform">+</span>
+          </summary>
+          <p class="mt-3 text-[0.95rem] leading-relaxed text-[color:var(--color-espresso)]/80">{isUk ? item.a_uk : item.a_de}</p>
+        </details>
       ))}
     </div>
   </div>
@@ -154,26 +232,43 @@ const voices = [
     <div class="kicker text-[color:var(--color-gold)]">{dict.home.contact_kicker}</div>
     <h2 class="font-display italic text-4xl md:text-6xl mt-3 leading-tight">{dict.home.contact_title}</h2>
     <p class="mt-5 text-lg text-[color:var(--color-warm-white)]/80">{dict.home.contact_body}</p>
-    <div class="mt-10 flex justify-center">
-      <a href="https://t.me/la_dolce_gera" target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[color:var(--color-warm-white)] text-[color:var(--color-burgundy)] px-7 py-3.5 rounded-full font-medium hover:scale-105 transition">
+    <div class="mt-10 flex flex-wrap gap-3 justify-center">
+      <a href={business.contacts.telegram_url} target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[color:var(--color-warm-white)] text-[color:var(--color-burgundy)] px-7 py-3.5 rounded-full font-medium hover:scale-105 transition">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <path d="M22 3.5L2 11l6 2 2 7 4-4 5 5z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/>
         </svg>
-        {dict.home.contact_cta}
+        Telegram
+      </a>
+      <a href={business.contacts.whatsapp_url} target="_blank" rel="noopener" class="inline-flex items-center gap-2 bg-[color:var(--color-warm-white)]/10 border border-[color:var(--color-warm-white)]/40 text-[color:var(--color-warm-white)] px-7 py-3.5 rounded-full font-medium hover:bg-[color:var(--color-warm-white)] hover:text-[color:var(--color-burgundy)] transition">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.8-.7-1.4-1.6-1.6-1.9-.2-.3 0-.4.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.5-.9-2.1-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.3.3-1 1-1 2.4 0 1.4 1 2.8 1.2 3 .1.2 2 3.1 4.9 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.2-.2-.5-.3zM12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.7 1.4 5.3L2 22l4.8-1.4C8.4 21.5 10.1 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z" />
+        </svg>
+        WhatsApp
       </a>
     </div>
     <div class="mt-12 grid sm:grid-cols-3 gap-6 text-sm text-[color:var(--color-warm-white)]/80 max-w-2xl mx-auto">
       <div>
-        <div class="kicker text-[color:var(--color-gold)]">Standort</div>
-        <div class="mt-1.5">Stadtgraben 14<br />07545 Gera</div>
+        <div class="kicker text-[color:var(--color-gold)]">{isUk ? "Адреса" : "Standort"}</div>
+        <div class="mt-1.5">{business.address.street}<br />{business.address.zip} {business.address.city}</div>
       </div>
       <div>
-        <div class="kicker text-[color:var(--color-gold)]">Im</div>
-        <div class="mt-1.5">Restaurant<br />1880 ABACO</div>
+        <div class="kicker text-[color:var(--color-gold)]">{isUk ? "Години" : "Öffnungszeiten"}</div>
+        <div class="mt-1.5">
+          {business.hours.map(h => (
+            <div>
+              <span class="font-medium">{isUk ? h.day_uk : h.day_de}</span>
+              {" "}
+              {h.open ? `${h.open}–${h.close}` : (isUk ? "вихідний" : "geschl.")}
+            </div>
+          ))}
+        </div>
       </div>
       <div>
-        <div class="kicker text-[color:var(--color-gold)]">Vorbestellung</div>
-        <div class="mt-1.5">min. 3 Tage<br />via Telegram</div>
+        <div class="kicker text-[color:var(--color-gold)]">{isUk ? "Передзамовлення" : "Vorbestellung"}</div>
+        <div class="mt-1.5">
+          {isUk ? `мін. ${business.lead_time.standard_days} дні` : `min. ${business.lead_time.standard_days} Tage`}
+          <br />via Telegram
+        </div>
       </div>
     </div>
   </div>

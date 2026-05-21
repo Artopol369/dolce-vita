@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Base from "../../layouts/Base.astro";
 import CatalogDetail from "../../components/CatalogDetail.astro";
+import StructuredData from "../../components/StructuredData.astro";
 import { t, pickBilingual } from "../../i18n/ui";
 
 export async function getStaticPaths() {
@@ -14,5 +15,17 @@ const title = pickBilingual(item.data, "de", "title");
 const dict = t("de");
 ---
 <Base title={title} description={item.data.summary_de}>
+  <StructuredData
+    locale="de"
+    page="tortes"
+    product={{
+      name: title,
+      description: item.data.summary_de,
+      image: item.data.hero_image,
+      pricePerKg: item.data.price_per_kg_eur ?? undefined,
+      pricePerPiece: item.data.price_per_piece_eur ?? undefined
+    }}
+    slot="head"
+  />
   <CatalogDetail item={item} locale="de" collection="tortes" Content={Content} />
 </Base>

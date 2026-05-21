@@ -1,12 +1,13 @@
 {
   "lang": "uk",
-  "site_title": "La Dolce Gera — Кондитерська в 1880 ABACO",
-  "site_tagline": "Домашні торти з серця України. Свіжі з 1880 ABACO у Гері.",
+  "site_title": "La Dolce Gera — Українська кондитерська в Гері",
+  "site_tagline": "Авторські торти з серця України. На замовлення в Гері.",
   "nav": {
     "home": "Головна",
     "tortes": "Торти",
     "sweets": "Солодке",
     "journal": "Журнал",
+    "events": "Свята",
     "impressum": "Impressum",
     "datenschutz": "Конфіденційність"
   },
@@ -14,14 +15,14 @@
     "kicker": "Caffè · Dolci · Gera",
     "title_top": "la dolce",
     "title_bottom": "Gera",
-    "subtitle": "Українська кондитерська у ресторані 1880 ABACO. Авторські торти, капкейки, печиво — ручна робота, мінімум 3 дні на замовлення.",
+    "subtitle": "Українська кондитерська в Гері. Авторські торти, капкейки, печиво — ручна робота, мінімум 3 дні на замовлення.",
     "cta_order": "Замовити в Telegram",
     "cta_browse": "Подивитись торти"
   },
   "home": {
     "intro_kicker": "Про нас",
     "intro_title": "Солодке з душею.",
-    "intro_body": "Дарья та Nataliia печуть з липня 2024 для родин Гери та околиць. Класичні українські рецепти — Наполеон, Медівник — поряд з французькою класикою: Фрезʼє, Шварцвальдський, мусові торти. Замовлення через Telegram, самовивіз з 1880 ABACO.",
+    "intro_body": "Дарья та Nataliia печуть з липня 2024 для родин Гери та околиць. Класичні українські рецепти — Наполеон, Медівник — поряд з французькою класикою: Фрезʼє, Шварцвальдський, мусові торти. Замовлення через Telegram, самовивіз з Heinrichstraße 47.",
     "services_kicker": "Що ми робимо",
     "tortes_title": "Авторські торти",
     "tortes_body": "Класичні та французькі рецепти від 20 €/кг. Мінімум 3 дні на замовлення.",
@@ -35,8 +36,8 @@
     "voices_kicker": "Що кажуть гості",
     "voices_title": "Голоси з сусідства",
     "contact_kicker": "Як нас знайти",
-    "contact_title": "Stadtgraben 14, 07545 Gera",
-    "contact_body": "У ресторані 1880 ABACO. Самовивіз за домовленістю через Telegram.",
+    "contact_title": "Напишіть нам у Telegram",
+    "contact_body": "Самовивіз у Гері за домовленістю. Доставка в радіусі 15 км можлива.",
     "contact_cta": "Написати в Telegram"
   },
   "tortes": {
@@ -70,7 +71,7 @@
     "read_more": "Читати далі"
   },
   "footer": {
-    "address_line": "1880 ABACO · Stadtgraben 14 · 07545 Gera",
+    "address_line": "Heinrichstraße 47 · 07545 Гера",
     "contact_line": "Telegram: @la_dolce_gera",
     "copyright": "© 2026 La Dolce Gera"
   },

@@ -1,0 +1,87 @@
+---
+import business from "../data/business.json";
+import faq from "../data/faq.json";
+import type { Locale } from "../i18n/ui";
+
+interface Props {
+  locale: Locale;
+  page: "home" | "events" | "tortes" | "sweets";
+  product?: { name: string; description?: string; image?: string; pricePerKg?: number; pricePerPiece?: number };
+}
+
+const { locale, page, product } = Astro.props;
+const isUk = locale === "uk";
+
+const dayMap: Record<string, string> = {
+  "Mo–Fr": "Mo,Tu,We,Th,Fr",
+  "Sa": "Sa",
+  "So": "Su",
+};
+
+const openingHours = business.hours
+  .filter(h => h.open && h.close)
+  .map(h => `${dayMap[h.day_de] || h.day_de} ${h.open}-${h.close}`);
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  "name": business.name,
+  "description": isUk ? business.tagline_uk : business.tagline_de,
+  "image": "https://ladolcegera.de/og-image.png",
+  "url": "https://ladolcegera.de",
+  "telephone": business.contacts.phone,
+  "email": business.contacts.email,
+  "priceRange": "€€",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": business.address.street,
+    "postalCode": business.address.zip,
+    "addressLocality": business.address.city,
+    "addressCountry": "DE"
+  },
+  "openingHours": openingHours,
+  "sameAs": [
+    business.contacts.telegram_url,
+    business.contacts.whatsapp_url,
+    `https://instagram.com/${business.contacts.instagram.replace("@", "")}`
+  ]
+};
+
+const faqPage = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(item => ({
+    "@type": "Question",
+    "name": isUk ? item.q_uk : item.q_de,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": isUk ? item.a_uk : item.a_de
+    }
+  }))
+};
+
+const productSchema = product ? {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": product.name,
+  "description": product.description,
+  "image": product.image ? `https://ladolcegera.de${product.image}` : "https://ladolcegera.de/og-image.png",
+  "brand": { "@type": "Brand", "name": "La Dolce Gera" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "EUR",
+    "price": product.pricePerKg ?? product.pricePerPiece ?? 0,
+    "priceSpecification": product.pricePerKg ? {
+      "@type": "UnitPriceSpecification",
+      "price": product.pricePerKg,
+      "priceCurrency": "EUR",
+      "referenceQuantity": { "@type": "QuantitativeValue", "value": 1, "unitCode": "KGM" }
+    } : undefined,
+    "availability": "https://schema.org/InStock",
+    "seller": { "@type": "Bakery", "name": business.name }
+  }
+} : null;
+---
+{page === "home" && <script type="application/ld+json" set:html={JSON.stringify(localBusiness)} />}
+{page === "home" && <script type="application/ld+json" set:html={JSON.stringify(faqPage)} />}
+{productSchema && <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />}

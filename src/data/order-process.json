@@ -1,0 +1,49 @@
+{
+  "intro_de": "So bestellt ihr in 5 Schritten — kein Konto, keine Karte, alles persönlich über Telegram.",
+  "intro_uk": "Як замовити за 5 кроків — без облікового запису, без карти, все особисто в Telegram.",
+  "steps": [
+    {
+      "n": 1,
+      "icon": "browse",
+      "title_de": "Stöbern",
+      "title_uk": "Оберіть",
+      "body_de": "Schaut euch unsere Torten und süßen Snacks an. Notiert euch Namen oder Foto-Link.",
+      "body_uk": "Перегляньте торти та солодощі. Запамʼятайте назву або збережіть фото."
+    },
+    {
+      "n": 2,
+      "icon": "telegram",
+      "title_de": "Schreibt uns auf Telegram",
+      "title_uk": "Напишіть у Telegram",
+      "body_de": "@ladolcegera_order — schreibt, was ihr wollt, für wie viele Personen, und wann ihr es braucht. Antwort meist innerhalb von 2 Stunden (Mo–Sa).",
+      "body_uk": "@ladolcegera_order — напишіть, що хочете, на скільки людей і коли потрібно. Відповідаємо зазвичай протягом 2 годин (Пн–Сб)."
+    },
+    {
+      "n": 3,
+      "icon": "confirm",
+      "title_de": "Angebot & Bestätigung",
+      "title_uk": "Кошторис і підтвердження",
+      "body_de": "Wir senden euch Preis, Liefertermin und ggf. Skizze. Bei Bestellungen über 100 € — Anzahlung 30 % per SEPA oder PayPal.",
+      "body_uk": "Ми надішлемо ціну, дату готовності та скетч (якщо потрібно). Для замовлень понад 100 € — передплата 30 % через SEPA або PayPal."
+    },
+    {
+      "n": 4,
+      "icon": "bake",
+      "title_de": "Wir backen",
+      "title_uk": "Ми печемо",
+      "body_de": "Frisch am Tag der Abholung. Daria schickt euch ein Foto, sobald der Kuchen fertig ist.",
+      "body_uk": "Свіжо у день видачі. Дарʼя надсилає фото готового торта."
+    },
+    {
+      "n": 5,
+      "icon": "pickup",
+      "title_de": "Abholung oder Lieferung",
+      "title_uk": "Самовивіз або доставка",
+      "body_de": "Heinrichstraße 47, Gera — nach Termin. Oder Lieferung im Umkreis von 15 km (8 €). Restzahlung bar oder per Überweisung.",
+      "body_uk": "Heinrichstraße 47, Гера — за домовленістю. Або доставка в радіусі 15 км (8 €). Решта оплати — готівкою чи переказом."
+    }
+  ],
+  "cta_de": "Jetzt auf Telegram schreiben",
+  "cta_uk": "Написати в Telegram",
+  "cta_link": "https://t.me/ladolcegera_order"
+}

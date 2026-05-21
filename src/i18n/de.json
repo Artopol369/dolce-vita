@@ -1,12 +1,13 @@
 {
   "lang": "de",
-  "site_title": "La Dolce Gera — Konditorei im 1880 ABACO",
-  "site_tagline": "Hausgemachte Torten aus dem Herzen der Ukraine. Frisch aus 1880 ABACO Gera.",
+  "site_title": "La Dolce Gera — Ukrainische Konditorei in Gera",
+  "site_tagline": "Maßgefertigte Torten aus dem Herzen der Ukraine. Bestellung auf Vorbestellung in Gera.",
   "nav": {
     "home": "Startseite",
     "tortes": "Torten",
     "sweets": "Süßes",
     "journal": "Journal",
+    "events": "Anlässe",
     "impressum": "Impressum",
     "datenschutz": "Datenschutz"
   },
@@ -14,14 +15,14 @@
     "kicker": "Caffè · Dolci · Gera",
     "title_top": "la dolce",
     "title_bottom": "Gera",
-    "subtitle": "Ukrainische Konditorei im Restaurant 1880 ABACO. Maßgefertigte Torten, Cupcakes, Plätzchen — handgemacht, mit 3 Tagen Vorbestellung.",
+    "subtitle": "Ukrainische Konditorei in Gera. Maßgefertigte Torten, Cupcakes, Plätzchen — handgemacht, mit 3 Tagen Vorbestellung.",
     "cta_order": "Bei Telegram bestellen",
     "cta_browse": "Torten ansehen"
   },
   "home": {
     "intro_kicker": "Über uns",
     "intro_title": "Süßes mit Seele.",
-    "intro_body": "Дарья und Nataliia backen seit Juli 2024 für die Familien in und um Gera. Klassische ukrainische Rezepte wie Napoleon und Medivnyk treffen auf französische Klassiker — Frézier, Black-Forest, Mousse-Torten. Bestellt wird über Telegram, abgeholt im 1880 ABACO.",
+    "intro_body": "Дарья und Nataliia backen seit Juli 2024 für die Familien in und um Gera. Klassische ukrainische Rezepte wie Napoleon und Medivnyk treffen auf französische Klassiker — Frézier, Black-Forest, Mousse-Torten. Bestellt wird über Telegram, abgeholt in der Heinrichstraße 47.",
     "services_kicker": "Was wir machen",
     "tortes_title": "Maßgefertigte Torten",
     "tortes_body": "Klassische und französische Rezepte ab 20 €/kg. Mindestens 3 Tage Vorbestellung.",
@@ -35,8 +36,8 @@
     "voices_kicker": "Was Gäste sagen",
     "voices_title": "Stimmen aus der Nachbarschaft",
     "contact_kicker": "So findet ihr uns",
-    "contact_title": "Stadtgraben 14, 07545 Gera",
-    "contact_body": "Im Restaurant 1880 ABACO. Abholung nach Terminvereinbarung über Telegram.",
+    "contact_title": "Schreibt uns direkt bei Telegram",
+    "contact_body": "Abholung in Gera nach Terminvereinbarung. Lieferung innerhalb 15 km möglich.",
     "contact_cta": "In Telegram schreiben"
   },
   "tortes": {
@@ -70,7 +71,7 @@
     "read_more": "Weiterlesen"
   },
   "footer": {
-    "address_line": "1880 ABACO · Stadtgraben 14 · 07545 Gera",
+    "address_line": "Heinrichstraße 47 · 07545 Gera",
     "contact_line": "Telegram: @la_dolce_gera",
     "copyright": "© 2026 La Dolce Gera"
   },

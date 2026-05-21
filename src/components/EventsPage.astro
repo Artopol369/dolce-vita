@@ -1,0 +1,79 @@
+---
+import { type Locale, localizePath } from "../i18n/ui";
+import TelegramCta from "./TelegramCta.astro";
+import events from "../data/events.json";
+
+interface Props { locale: Locale }
+const { locale } = Astro.props;
+const isUk = locale === "uk";
+---
+
+<section class="bg-gradient-to-br from-[color:var(--color-crema)] to-[color:var(--color-warm-white)]">
+  <div class="max-w-5xl mx-auto px-5 lg:px-8 pt-16 pb-12 md:pt-24 md:pb-16 text-center">
+    <div class="kicker">{isUk ? "Свята та події" : "Anlässe & Feiern"}</div>
+    <h1 class="font-display italic text-5xl md:text-6xl text-[color:var(--color-burgundy)] mt-3 leading-tight">
+      {isUk ? "Свято, яке смакує" : "Feste, die schmecken"}
+    </h1>
+    <p class="mt-6 text-lg text-[color:var(--color-espresso)]/80 max-w-2xl mx-auto">
+      {isUk
+        ? "Готові пакети для дитячих свят, весіль, корпоративів та сезонних замовлень. Все під вас — пишіть, обговоримо."
+        : "Komplettpakete für Kinderfeiern, Hochzeiten, Firmenevents und saisonale Anlässe. Alles individuell — schreibt uns einfach."}
+    </p>
+  </div>
+</section>
+
+<section class="py-16 md:py-20">
+  <div class="max-w-6xl mx-auto px-5 lg:px-8 grid md:grid-cols-2 gap-7">
+    {events.map(ev => (
+      <article class="bg-[color:var(--color-crema)] rounded-2xl p-7 flex flex-col">
+        {ev.seasonal && (
+          <div class="self-start kicker text-[color:var(--color-gold)] bg-[color:var(--color-burgundy)] px-3 py-1 rounded-full mb-4 text-[0.6rem]">
+            {isUk ? "сезонне" : "saisonal"}
+          </div>
+        )}
+        <h2 class="font-display italic text-3xl text-[color:var(--color-burgundy)]">{isUk ? ev.title_uk : ev.title_de}</h2>
+        <p class="mt-3 text-[0.98rem] leading-relaxed text-[color:var(--color-espresso)]/80">
+          {isUk ? ev.summary_uk : ev.summary_de}
+        </p>
+
+        <dl class="mt-5 grid grid-cols-3 gap-3 text-sm">
+          <div>
+            <dt class="kicker text-[0.55rem]">{isUk ? "Гостей" : "Gäste"}</dt>
+            <dd class="font-display text-xl text-[color:var(--color-espresso)]">{ev.guests_min}–{ev.guests_max}</dd>
+          </div>
+          <div>
+            <dt class="kicker text-[0.55rem]">{isUk ? "Термін" : "Vorlauf"}</dt>
+            <dd class="font-display text-xl text-[color:var(--color-espresso)]">{ev.lead_time_days} {isUk ? "дн." : "Tg."}</dd>
+          </div>
+          <div>
+            <dt class="kicker text-[0.55rem]">{isUk ? "Ціна" : "Preis"}</dt>
+            <dd class="font-display text-xl text-[color:var(--color-burgundy)]">
+              {(ev as any).price_unit_de ? (isUk ? (ev as any).price_unit_uk : (ev as any).price_unit_de) : `від ${ev.price_from_eur} €`.replace("від", isUk ? "від" : "ab")}
+            </dd>
+          </div>
+        </dl>
+
+        <ul class="mt-5 space-y-2 text-sm text-[color:var(--color-espresso)]/85 flex-1">
+          {(isUk ? ev.includes_uk : ev.includes_de).map(line => (
+            <li class="flex gap-2">
+              <span class="text-[color:var(--color-gold)] font-display italic">✦</span>
+              <span>{line}</span>
+            </li>
+          ))}
+        </ul>
+
+        {ev.themes && (
+          <div class="mt-5 flex flex-wrap gap-2">
+            {ev.themes.map(theme => (
+              <span class="text-[0.7rem] px-2.5 py-1 rounded-full bg-[color:var(--color-warm-white)] border border-[color:var(--color-mist)] text-[color:var(--color-espresso)]/70">{theme}</span>
+            ))}
+          </div>
+        )}
+
+        <div class="mt-6">
+          <TelegramCta label={isUk ? "Запитати" : "Anfragen"} variant="primary" />
+        </div>
+      </article>
+    ))}
+  </div>
+</section>

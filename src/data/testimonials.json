@@ -1,0 +1,98 @@
+[
+  {
+    "id": "t-001",
+    "author": "Anna K.",
+    "city": "Gera",
+    "rating": 5,
+    "date": "2026-04-12",
+    "lang": "de",
+    "text_de": "Zum 40. Geburtstag meines Mannes habe ich einen Medivnyk bestellt — alle Gäste, auch die Deutschen, haben nach dem Rezept gefragt. Daria, du bist ein Wunder!",
+    "text_uk": "На 40-річчя чоловіка замовила медівник — усі гості, навіть німці, питали рецепт. Дарʼє, ти — диво!",
+    "product_ref": "medivnyk",
+    "source_message_id": "tg-2887"
+  },
+  {
+    "id": "t-002",
+    "author": "Olha P.",
+    "city": "Zeulenroda",
+    "rating": 5,
+    "date": "2026-03-28",
+    "lang": "uk",
+    "text_de": "Habe einen Schwarzwald-Kuchen für 12 Personen bestellt. Pünktlich, wunderschön dekoriert, der Geschmack — wie in der besten Konditorei in Wien. Danke!",
+    "text_uk": "Замовляла шварцвальд на 12 осіб. Вчасно, гарно прикрашений, смак — як у найкращій кондитерській у Відні. Дякую!",
+    "product_ref": "schwarzwald",
+    "source_message_id": "tg-2815"
+  },
+  {
+    "id": "t-003",
+    "author": "Markus B.",
+    "city": "Gera",
+    "rating": 5,
+    "date": "2026-05-03",
+    "lang": "de",
+    "text_de": "Bento-Cake für die Verlobung meiner Freundin — sie war sprachlos. Sehr persönliche Beratung über Telegram, schnelle Antworten, faire Preise.",
+    "text_uk": "Бенто-торт на заручини дівчини — вона була в шоці (у хорошому сенсі). Дуже особисте спілкування в Telegram, швидкі відповіді, чесні ціни.",
+    "product_ref": "bento",
+    "source_message_id": "tg-3035"
+  },
+  {
+    "id": "t-004",
+    "author": "Iryna S.",
+    "city": "Jena",
+    "rating": 5,
+    "date": "2026-02-22",
+    "lang": "uk",
+    "text_de": "Für den Kindergeburtstag meiner Tochter — eine Einhorn-Torte. Sie hat geweint vor Freude. Daria hat sogar die Farbe an das Kleid angepasst.",
+    "text_uk": "На день народження доньки замовили торт-єдиноріг. Вона плакала від щастя. Дарʼя навіть колір підлаштувала під сукню.",
+    "product_ref": "kids-cake",
+    "source_message_id": "tg-2678"
+  },
+  {
+    "id": "t-005",
+    "author": "Lena & Tomáš",
+    "city": "Gera",
+    "rating": 5,
+    "date": "2026-05-15",
+    "lang": "de",
+    "text_de": "Hochzeitstorte für 80 Gäste — Fraisier mit frischen Erdbeeren. Drei Stockwerke, jeder Bissen war perfekt. Wir empfehlen La Dolce Gera ohne Wenn und Aber.",
+    "text_uk": "Весільний торт на 80 гостей — фрезʼє зі свіжою полуницею. Три яруси, кожен шматок — досконалість. Рекомендуємо La Dolce Gera без жодних застережень.",
+    "product_ref": "fraisier",
+    "source_message_id": "tg-3099"
+  },
+  {
+    "id": "t-006",
+    "author": "Світлана М.",
+    "city": "Gera",
+    "rating": 5,
+    "date": "2026-04-23",
+    "lang": "uk",
+    "text_de": "Brownies für die Büro-Party — alle 30 Stück in 20 Minuten weg. Kollegen fragen jetzt jede Woche, wann der nächste Liefertermin ist :)",
+    "text_uk": "Замовила брауні на офісну вечірку — усі 30 шт. зникли за 20 хвилин. Тепер колеги щотижня питають, коли наступне постачання :)",
+    "product_ref": "brownie",
+    "source_message_id": "tg-2967"
+  },
+  {
+    "id": "t-007",
+    "author": "Familie Weber",
+    "city": "Greiz",
+    "rating": 5,
+    "date": "2026-03-19",
+    "lang": "de",
+    "text_de": "Tiramisu für Oma's 75. Geburtstag. Sie ist Italienerin und sehr kritisch — sie sagte: ‚Besser als in Bologna.‘ Mehr muss man nicht sagen.",
+    "text_uk": "Тірамісу на 75-ліття бабусі. Вона італійка і дуже прискіпліва — сказала: «Краще, ніж у Болоньї». Тут нічого додати.",
+    "product_ref": "tiramisu",
+    "source_message_id": "tg-2774"
+  },
+  {
+    "id": "t-008",
+    "author": "Yulia D.",
+    "city": "Erfurt",
+    "rating": 5,
+    "date": "2026-05-20",
+    "lang": "uk",
+    "text_de": "Habe einen Red Velvet aus Erfurt bestellt, Lieferung war organisiert — alles frisch, alles wie versprochen. Schon die zweite Bestellung, kommt nicht die letzte.",
+    "text_uk": "Замовила ред велвет з Ерфурта, доставку організували — все свіже, все як обіцяли. Це вже друге замовлення, точно не останнє.",
+    "product_ref": "red-velvet",
+    "source_message_id": "tg-3138"
+  }
+]
