@@ -8,13 +8,29 @@ const { item, locale, collection, Content } = Astro.props;
 const dict = t(locale);
 const title = pickBilingual(item.data, locale, "title");
 const summary = pickBilingual(item.data, locale, "summary");
+const ingredients = pickBilingual(item.data, locale, "ingredients");
 const allPhotos = [item.data.hero_image, ...(item.data.gallery ?? [])].filter(Boolean);
 
 let priceLabel: string | null = null;
+let grundpreisLabel: string | null = null;
 if (item.data.price_per_kg_eur) {
   priceLabel = dict.tortes.price_per_kg.replace("{price}", String(item.data.price_per_kg_eur));
+  // PAngV § 4: €/kg is already the Grundpreis. Add €/100g as secondary helper.
+  const per100g = (item.data.price_per_kg_eur / 10).toFixed(2).replace(".", ",");
+  grundpreisLabel = dict.tortes.grundpreis_per_100g.replace("{price}", per100g);
 } else if (item.data.price_per_piece_eur) {
   priceLabel = dict.tortes.price_per_piece.replace("{price}", String(item.data.price_per_piece_eur));
+  // Derive €/kg if we know weight (min_weight_kg for tortes, piece_weight_g for sweets).
+  let weightKg: number | null = null;
+  if (item.data.min_weight_kg) weightKg = item.data.min_weight_kg;
+  else if (item.data.piece_weight_g) weightKg = item.data.piece_weight_g / 1000;
+  else if (item.data.pieces_per_kg) weightKg = 1 / item.data.pieces_per_kg;
+  if (weightKg) {
+    const per100g = (item.data.price_per_piece_eur / (weightKg * 10)).toFixed(2).replace(".", ",");
+    grundpreisLabel = dict.tortes.grundpreis_per_100g.replace("{price}", per100g);
+  } else {
+    grundpreisLabel = dict.tortes.grundpreis_on_request;
+  }
 }
 ---
 <section class="bg-[color:var(--color-warm-white)]">
@@ -43,9 +59,14 @@ if (item.data.price_per_kg_eur) {
       {summary && <p class="mt-5 text-[color:var(--color-espresso)]/85 leading-relaxed">{summary}</p>}
       <div class="mt-6 space-y-3">
         {priceLabel && (
-          <div class="flex items-baseline justify-between border-b border-[color:var(--color-mist)] pb-3">
-            <span class="kicker">{locale === "uk" ? "Ціна" : "Preis"}</span>
-            <span class="font-display text-2xl text-[color:var(--color-burgundy)]">{priceLabel}</span>
+          <div class="border-b border-[color:var(--color-mist)] pb-3">
+            <div class="flex items-baseline justify-between">
+              <span class="kicker">{locale === "uk" ? "Ціна" : "Preis"}</span>
+              <span class="font-display text-2xl text-[color:var(--color-burgundy)]">{priceLabel}</span>
+            </div>
+            {grundpreisLabel && (
+              <div class="mt-1 text-right text-xs text-[color:var(--color-espresso)]/60">{grundpreisLabel}</div>
+            )}
           </div>
         )}
         {item.data.lead_time_days && (
@@ -63,6 +84,18 @@ if (item.data.price_per_kg_eur) {
       </div>
       <div class="mt-7"><TelegramCta label={dict.cta_telegram} variant="primary" /></div>
       <div class="mt-8">
+        <div class="mb-5">
+          <span class="kicker text-[0.65rem]">{dict.tortes.ingredients_label}</span>
+          <p class="mt-2 text-xs text-[color:var(--color-espresso)]/80 leading-relaxed">
+            {ingredients || dict.tortes.ingredients_disclaimer}
+          </p>
+          {(item.data.allergens ?? []).length > 0 && (
+            <p class="mt-2 text-xs text-[color:var(--color-espresso)]/80 leading-relaxed">
+              <strong class="font-semibold">{dict.tortes.contains_label}:</strong>{" "}
+              {(item.data.allergens ?? []).map((a: string) => (dict.allergens as any)?.[a] ?? a).join(", ")}.
+            </p>
+          )}
+        </div>
         <AllergenList allergens={item.data.allergens ?? []} locale={locale} />
         <p class="mt-3 text-xs text-[color:var(--color-espresso)]/55 leading-relaxed">{dict.tortes.allergens_note}</p>
       </div>

@@ -49,7 +49,12 @@
     "lead_time": "Замовлення: {days} дні",
     "card_cta": "Замовити",
     "allergens_label": "Алергени",
-    "allergens_note": "Актуальну інформацію про алергени надаємо у Telegram на ваш запит."
+    "allergens_note": "Актуальну інформацію про алергени надаємо у Telegram на ваш запит.",
+    "ingredients_label": "Склад",
+    "contains_label": "Містить",
+    "ingredients_disclaimer": "Повний склад надаємо у Telegram перед підтвердженням замовлення (вимога LMIV Art. 14).",
+    "grundpreis_per_100g": "({price} €/100г)",
+    "grundpreis_on_request": "Ціна за штуку — ціну за кг повідомимо на запит"
   },
   "sweets": {
     "page_title": "Солодке",
@@ -78,11 +83,19 @@
   "placeholder_notice": "Демоверсія сайту. Юридичні дані буде доповнено перед публікацією.",
   "allergens": {
     "gluten": "Глютен",
+    "crustaceans": "Ракоподібні",
     "eggs": "Яйця",
-    "milk": "Молоко",
-    "nuts": "Горіхи",
+    "fish": "Риба",
+    "peanuts": "Арахіс",
     "soy": "Соя",
+    "milk": "Молоко (вкл. лактозу)",
+    "nuts": "Горіхи",
+    "celery": "Селера",
+    "mustard": "Гірчиця",
     "sesame": "Кунжут",
+    "sulphites": "Діоксид сірки/сульфіти",
+    "lupin": "Люпин",
+    "molluscs": "Молюски",
     "honey": "Мед",
     "cherry": "Кісточкові",
     "poppy": "Мак"

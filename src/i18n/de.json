@@ -49,7 +49,12 @@
     "lead_time": "Vorbestellung: {days} Tage",
     "card_cta": "Anfragen",
     "allergens_label": "Allergene",
-    "allergens_note": "Aktuelle Allergeninformationen erhalten Sie auf Anfrage über Telegram."
+    "allergens_note": "Aktuelle Allergeninformationen erhalten Sie auf Anfrage über Telegram.",
+    "ingredients_label": "Zutaten",
+    "contains_label": "Enthält",
+    "ingredients_disclaimer": "Zutatenliste auf Anfrage — bitte über Telegram. Wir geben die vollständigen Zutaten vor Bestellbestätigung schriftlich an (LMIV Art. 14).",
+    "grundpreis_per_100g": "({price} €/100g)",
+    "grundpreis_on_request": "Stückpreis — Grundpreis (€/kg) auf Anfrage"
   },
   "sweets": {
     "page_title": "Süßes",
@@ -78,11 +83,19 @@
   "placeholder_notice": "Demo-Version dieser Webseite. Die endgültigen rechtlichen Angaben werden vor der Veröffentlichung ergänzt.",
   "allergens": {
     "gluten": "Gluten",
+    "crustaceans": "Krebstiere",
     "eggs": "Eier",
-    "milk": "Milch",
-    "nuts": "Nüsse",
+    "fish": "Fisch",
+    "peanuts": "Erdnüsse",
     "soy": "Soja",
+    "milk": "Milch (inkl. Laktose)",
+    "nuts": "Schalenfrüchte",
+    "celery": "Sellerie",
+    "mustard": "Senf",
     "sesame": "Sesam",
+    "sulphites": "Schwefeldioxid/Sulfite",
+    "lupin": "Lupinen",
+    "molluscs": "Weichtiere",
     "honey": "Honig",
     "cherry": "Steinobst",
     "poppy": "Mohn"

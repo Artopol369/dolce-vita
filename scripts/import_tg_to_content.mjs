@@ -257,6 +257,8 @@ for (const [slug, data] of catalogBySlug) {
     title_de: entry.title_de,
     summary_uk: entry.summary_uk,
     summary_de: entry.summary_de,
+    ingredients_de: entry.ingredients_de ?? "Zutatenliste auf Anfrage — bitte über Telegram. Wir senden die vollständigen Zutaten vor Bestellbestätigung schriftlich (LMIV Art. 14).",
+    ingredients_uk: entry.ingredients_uk ?? "Повний склад надаємо у Telegram перед підтвердженням замовлення (вимога LMIV Art. 14).",
     price_per_kg_eur: entry.price_per_kg_eur ?? null,
     price_per_piece_eur: entry.price_per_piece_eur ?? null,
     pack_sizes: entry.pack_sizes ?? [],

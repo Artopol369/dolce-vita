@@ -75,8 +75,63 @@
 - Додати `<script defer data-domain="ladolcegera.de" src="https://plausible.io/js/script.js"></script>` у Base.astro head.
 - Потрібно акаунт у Plausible (€9/міс) — або self-hosted альтернатива Umami (free).
 
-**[M5] Sezonal Christmas home-takeover:**
+**[M5] WhatsApp pre-filled deep-links** — див. **[W5]** у Phase 3.5 нижче.
+
+**[M6] Sezonal Christmas home-takeover:**
 - Hero сцена з business.json events → якщо зараз листопад-грудень, замінити hero на Christmas-collect.
+
+### Phase 3.5 — WhatsApp automation (NEW, ~3-5 год дослідження + 2-4 год implementation)
+
+> **Контекст:** WhatsApp у Німеччині — основний месенджер для побутових замовлень (більше, ніж Telegram у місцевих). Дар'я ним активно користується. Артьом ніколи не робив WhatsApp-автоматизацій → треба спочатку дослідити варіанти, потім вибрати один.
+>
+> Зараз на сайті є тільки статичні `wa.me/...` посилання (компонент [WhatsAppCta.astro](../src/components/WhatsAppCta.astro)) — це **deep-link**, не автоматизація.
+
+**[W1] Дослідницький pass — порівняти 3 шляхи (research-skill, без коду):**
+
+| Шлях | Що це | Плюси | Мінуси | Ціна |
+|---|---|---|---|---|
+| **WhatsApp Business App** (manual) | Звичайний застосунок на телефоні Дар'ї + quick-replies, away-messages, labels | Безкоштовно, без коду, готово сьогодні | Все одно ручна робота, не масштабується | 0 € |
+| **WhatsApp Cloud API** (Meta офіційний) | Офіційний REST API від Meta → бот, webhook, шаблони повідомлень | Офіційно, дешево (~$0.06/conversation BR rate, free для service messages), без посередників | Треба business verification, Facebook Business Manager, шаблони на approval ~24h | ~5-20 €/міс при низькому волюмі |
+| **n8n / Make + Twilio WhatsApp** | Low-code оркестратор → з'єднує WhatsApp з Google Sheets / Telegram / email | Швидке прототипування, готові nodes | Twilio bridge = +20-30 €/міс, latency, ще одна точка відмови | 25-50 €/міс |
+
+**Action:** прогнати `nimble:nimble-web-expert` або `nimble:competitor-intel` skill для опитування свіжих 2026 цін / DSGVO-аспектів. Зберегти результат у `docs/whatsapp-automation-research.md`.
+
+**[W2] Юр-кваліфікація (DSGVO для WhatsApp):**
+- WhatsApp передає дані в USA → потрібен **окремий розділ у Datenschutz**, перерахування Auftragsverarbeitung (AVV) з Meta.
+- Якщо використовуємо Cloud API → треба **Meta Business Verification** для Дар'ї (нагадування власника бізнесу + ID).
+- Шаблон тексту Datenschutz § "WhatsApp Business" → дослідити готові у [datenschutz-generator.de](https://datenschutz-generator.de/).
+
+**[W3] MVP — мінімально-корисний бот (після вибору в W1):**
+Сценарій №1 — **acknowledgement**: клієнт пише → автоматично отримує:
+> "Дякуємо! Дар'я відповість протягом 2-4 годин. Тим часом меню: ladolcegera.de"
+
+Сценарій №2 — **catalog deep-link**: на сайті кнопка "WhatsApp" → відкриває чат з pre-filled текстом `?text=Hallo! Ich möchte Napoleon...` (аналогічно [M2] для Telegram).
+
+Сценарій №3 (стретч) — **order intake**: бот ставить 3 питання (що / на яку дату / кількість) і пересилає Дар'ї структурований запит у Telegram.
+
+**[W4] Tech architecture (якщо MVP = Cloud API):**
+```
+WhatsApp клієнт
+      ↓
+Meta Cloud API webhook
+      ↓
+Vercel Function /api/wa-webhook.ts  (Astro endpoint)
+      ↓
+Дар'я отримує summary в Telegram (через існуючий @la_dolce_gera_bot або новий)
+```
+- Зберігати state замовлення: KV store (Vercel KV / Upstash Redis free tier).
+- Логи + audit trail: пишемо в JSON-файл або Notion API.
+
+**[W5] Перепідключити WhatsAppCta.astro на pre-filled:**
+- Додати prop `message` (як планується для [M2] Telegram).
+- Закодувати UTF-8 → `encodeURIComponent`.
+- На сторінці торта дефолтний месседж: `"Hallo! Ich möchte einen {Torte_Name} bestellen für ___ Personen am ___."`
+
+**[W6] Hand-off для Дар'ї:**
+- Інструкція "як встановити WhatsApp Business" (PDF, німецькою).
+- Якщо Cloud API — короткий гайд як проходити Meta Business Verification (паспорт, реєстраційні документи).
+
+---
 
 ### Phase 4 — Free legal verification run (~3 год)
 
