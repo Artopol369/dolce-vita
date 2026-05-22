@@ -1,0 +1,122 @@
+---
+// Standalone pilot page for Artem Bentatortiki WhatsApp test.
+// NOT linked from La Dolce Gera nav. NOT indexed by search engines.
+// Purpose: feel how a customer experiences `wa.me/...?text=...` deep-links.
+// Delete this file (and remove from any sitemap) before LDG public launch.
+
+const WA_NUMBER = "4916091488988";
+
+const items = [
+  {
+    name: "Bento Classic",
+    desc: "300g · Vanille-Biskuit, Mascarpone-Creme, Beeren. Handgeschriebene Notiz auf dem Deckel.",
+    price: "18 €",
+    msg: "Hallo Artem! Ich möchte das Bento Classic bestellen — für 1-2 Personen. Datum: ___."
+  },
+  {
+    name: "Bento Schoko",
+    desc: "350g · dunkler Biskuit, Ganache, Schoko-Splitter. Ideal für Schokolade-Fans.",
+    price: "20 €",
+    msg: "Hallo Artem! Ich möchte das Bento Schoko bestellen — Datum: ___, Anlass: ___."
+  },
+  {
+    name: "Bento Custom",
+    desc: "300-500g · Geschmack & Dekor nach Wunsch. Min. 3 Tage Vorlauf.",
+    price: "ab 22 €",
+    msg: "Hallo Artem! Ich hätte gern ein individuelles Bento. Wunsch-Geschmack: ___, Datum: ___, Anlass: ___."
+  }
+];
+
+function waLink(text: string) {
+  return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+---
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Artem Bentatortiki — Pilot</title>
+    <style>
+      :root {
+        --bg: #faf6f1;
+        --ink: #2a1a14;
+        --accent: #c2185b;
+        --wa: #25d366;
+        --mist: #ece4dc;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.55;
+      }
+      .wrap { max-width: 720px; margin: 0 auto; padding: 2.5rem 1.25rem 5rem; }
+      .badge {
+        display: inline-block; padding: .3rem .7rem; border-radius: 999px;
+        background: #fff3cd; color: #8a6d1a; font-size: .72rem; letter-spacing: .12em;
+        text-transform: uppercase; font-weight: 600;
+      }
+      h1 { font-size: clamp(2rem, 6vw, 3rem); margin: .7rem 0 .3rem; letter-spacing: -.02em; }
+      .tag { color: #6b554a; font-size: 1.05rem; margin: 0 0 1.5rem; }
+      .hero-cta {
+        display: inline-flex; align-items: center; gap: .6rem;
+        background: var(--wa); color: #fff; padding: .9rem 1.4rem;
+        border-radius: 999px; text-decoration: none; font-weight: 600;
+        font-size: 1.05rem; box-shadow: 0 6px 20px rgba(37, 211, 102, .25);
+      }
+      .hero-cta:hover { transform: translateY(-1px); }
+      .grid { display: grid; gap: 1.1rem; margin: 2.5rem 0 1.5rem; }
+      .card {
+        background: #fff; border: 1px solid var(--mist); border-radius: 16px;
+        padding: 1.25rem; display: flex; flex-direction: column; gap: .6rem;
+      }
+      .card h3 { margin: 0; font-size: 1.25rem; }
+      .card .desc { color: #6b554a; font-size: .94rem; margin: 0; }
+      .card .row { display: flex; justify-content: space-between; align-items: center; margin-top: .3rem; }
+      .price { font-weight: 600; color: var(--accent); font-size: 1.05rem; }
+      .wa-btn {
+        background: var(--wa); color: #fff; text-decoration: none;
+        padding: .55rem 1rem; border-radius: 999px; font-size: .9rem; font-weight: 600;
+      }
+      .footer { margin-top: 3rem; font-size: .82rem; color: #8a7a70; border-top: 1px solid var(--mist); padding-top: 1.5rem; }
+      .footer code { background: var(--mist); padding: .1rem .4rem; border-radius: 4px; font-size: .8rem; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <span class="badge">Pilot · interne Test-Seite</span>
+      <h1>Artem Bentatortiki</h1>
+      <p class="tag">Handgemachte Bento-Törtchen aus Gera. Bestellung per WhatsApp.</p>
+
+      <a class="hero-cta" href={waLink("Hallo Artem! Ich interessiere mich für Bento-Törtchen.")}>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.6-1.6-.9-2.2-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2.1 3.2 5 4.4.7.3 1.2.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.2-.2-.5-.3z"/><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.2 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-3-.2-.3C4.2 15 3.8 13.5 3.8 12c0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.7 8.2-8.2 8.2z"/></svg>
+        Bei WhatsApp schreiben
+      </a>
+
+      <div class="grid">
+        {items.map(it => (
+          <div class="card">
+            <h3>{it.name}</h3>
+            <p class="desc">{it.desc}</p>
+            <div class="row">
+              <span class="price">{it.price}</span>
+              <a class="wa-btn" href={waLink(it.msg)}>
+                Bestellen →
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="footer">
+        <strong>Test-Modus.</strong> Diese Seite ist nicht öffentlich verlinkt und wird nicht von Suchmaschinen indexiert. Ziel: WhatsApp Business Deep-Link-Workflow auf der Nummer <code>+49 1609 1488988</code> testen.
+        <br/><br/>
+        Wenn der Pilot funktioniert → identisches Muster für La Dolce Gera mit Daryas Nummer.
+      </div>
+    </div>
+  </body>
+</html>
